@@ -3,7 +3,7 @@
  
  Members: Dastan Musrepov, Zhanibek Danabek
 
- ![logo](./Images/README_photos/xCellence.png)
+ ![logo](./Images/README_photos/xCellence.jpg)
 </div>
 
 ***
