@@ -72,7 +72,7 @@ The power for the EV3 Brick and the whole vehicle comes from a rechargeable 10V 
 
 ## Sensor management
 
-We use a color sensor to detect and determine the color of lines, a gyroscope to determine the angle of the robot, ultrasonic sensor to determine the distance between from the robot to the wall, thereby updating the odometry on turns - when seeing a line. We also use the Pixy2 to detect and determine the color of road signs on the first 'obstacle' lap. To determine the most accurate distance of the robot from the border, we conducted a research, which you can find in the [Researches](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Ultrasonic_research). The ultrasonic sensor shows incorrect data if it is located at an angle. On April 8, we made a graph of error versus angle.
+We use a color sensor to detect and determine the color of lines, a gyroscope to determine the angle of the robot, one ultrasonic sensor in the “obstacle” (clockwise or counterclockwise) or two in the “open” to determine the distance between the robot and the wall. We also use the Pixy2 Camera to detect and determine the color of road signs. On April 8, we made a graph of error versus angle. To determine the most accurate distance of the robot from the border, we conducted a research, which you can find in the [Researches](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Ultrasonic_research). The ultrasonic sensor shows incorrect data if it is located at an angle. On April 8, we made a graph of error versus angle.
 
 ***
 
@@ -89,7 +89,6 @@ First you need to configure Pixy2 to detect green and red road signs. Then you n
 
  ![photo](./Images/README_photos/Trajectory_of_road_sign.jpg)
 </div>
-Compared to the robot from the regional stage, we only drive with the held of the Pixy2 on the first lap, during which we record the coordinates of the points along which it will drive to avoid road signs on the remaining laps. We use local ododmetry to determine the position of the robot. To calculate the robot's x, we multiply the distance traveled by the cosine of the robot's angle, and to calculate the robot's y we multiply the distance traveled by the sine of the robot's angle. We calculate the distance traveled by multiplying the encoder angle by a coefficient equal to 33 dergrees to cm. On the first lap we record the coordinates of the road signs, and on the rest we drive according to odometry - it's much faster. We reset robot's odometry on turns, without using ultrasonic, namely by calculating the distance traveled between the lines, using a color sensor, motor encoders and a gyroscope.
 
 The final robot program with pseudocode is located in the [Source](https://github.com/XLNC-Deoxys/WRO-FE24/tree/main/Source).
 
