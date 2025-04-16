@@ -49,13 +49,7 @@ We use a medium motor for steering and two medium motors in the back for driving
  <img src="./Images/README_photos/Republic_robot.jpg" height="600">
 </div>
 
-The [photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Regional_steering.jpg) shows our [robot from the regional stage](https://github.com/RobotekPRIME2024/WRO-FE24/blob/main/Models/Regional_robot.io). We mounted the motor for the steering horizontally and used a rack. We used large motors for driving and tried to make an approximation of the Ackermann angle, but later abandoned this idea on this robot.
-<div align=center>
-
- <img src="./Images/README_photos/1st_Ackermann_robot.jpg" height="600">
-</div>
-
-In the [photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/1st_Ackermann_robot.jpg) is the bottom of our robot which we made after regional stage. Structurally it's very similar to the current one but it has different steering geometry. We changed the steering geometry so that the straight lines drawn from the axes of the front wheels intersect on the rear axle, as shown in the [photo below](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Ackermann_steering_geometry.png). The straight lines of our current robot intersect on the rear axle in one position.
+The [photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Republic_robot.jpg) shows our robot from the republic stage. It is very similar to the current one, but it uses ackerman steering. Straight lines drawn from the front wheel axes should intersect at the rear axle, as shown in the photo below. The straight lines of our previous robot intersect at the rear axle in one position. The backlash was too big, we decided to abandon this mechanism this year. This allowed to increase the maximum rotation angle and simplify the design.
 <div align=center>
 
  ![photo](./Images/README_photos/Ackermann_steering_geometry.png)
