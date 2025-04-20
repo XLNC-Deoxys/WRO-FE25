@@ -46,12 +46,6 @@ We use a one medium motor for steering and two medium motors in the back for dri
 ## Chassis design
 <div align=center>
 
- <img src="./Images/README_photos/Republic_robot.jpg" height="600">
-</div>
-
-The [photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Republic_robot.jpg) shows our robot from the republic stage. It is very similar to the current one, but it uses ackerman steering. Straight lines drawn from the front wheel axes should intersect at the rear axle, as shown in the photo below. The straight lines of our previous robot intersect at the rear axle in one position.
-<div align=center>
-
  ![photo](./Images/README_photos/Ackermann_steering_geometry.png)
 </div>
 
