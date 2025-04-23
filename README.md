@@ -105,9 +105,9 @@ Here is the link to [qualification](https://youtu.be/) and [obstacle](https://yo
 
 ## Robot photos
 ![photo](./Images/Robot_photos/Gotham.png)
-![photo](./Images/Robot_photos/Obstacle/Top.jpg)
-![photo](./Images/Robot_photos/Obstacle/Bottom.jpg)
-![photo](./Images/Robot_photos/Obstacle/Front.jpg)
-![photo](./Images/Robot_photos/Obstacle/Rear.jpg)
-![photo](./Images/Robot_photos/Obstacle/Left.jpg)
-![photo](./Images/Robot_photos/Obstacle/Right.jpg)
+![photo](./Images/Robot_photos/Top.jpg)
+![photo](./Images/Robot_photos/Bottom.jpg)
+![photo](./Images/Robot_photos/Front.jpg)
+![photo](./Images/Robot_photos/Rear.jpg)
+![photo](./Images/Robot_photos/Left.jpg)
+![photo](./Images/Robot_photos/Right.jpg)
