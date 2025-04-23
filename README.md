@@ -24,8 +24,8 @@
 * [Obstacle management](#obstacle-management)
   * [Program and pseudocode](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Source)
 * [Performance video](#performance-video)
-  * [Qualification](https://youtu.be/wz5MyXlZ5nA)
-  * [Obstacle](https://youtu.be/M8BKB8U_-hU)
+  * [Qualification]([https://youtu.be/wz5MyXlZ5nA](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR)](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW))
+  * [Obstacle]([https://youtu.be/M8BKB8U_-hU](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR](https://youtu.be/IbS0yFTRe58?si=Fjd2noFWhd0FMp65))
   * [Obstacle](https://youtu.be/)
 * [Pictures](#pictures)
   * [Team photos](#team-photos)
@@ -94,7 +94,7 @@ The final robot program with pseudocode is located in the [Source](https://githu
 
 # Performance video
 
-Here is the link to [qualification](https://youtu.be/) and [obstacle](https://youtu.be/) rounds demostration.
+Here is the link to [qualification]([https://youtu.be/](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR)](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW)) and [obstacle]([https://youtu.be/](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR)) rounds demostration.
 
 ***
 
