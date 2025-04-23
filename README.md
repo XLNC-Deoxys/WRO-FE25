@@ -1,7 +1,7 @@
 <div align=center>
  XLNC Deoxys team's repository for WRO Future Engineers 2025
  
- Members: Dastan Musrepov, Zhanibek Danabek
+ Members: Dastan Musrepov, Zhanibek Danabek, Ansar (Frosis)
 
  ![logo](./Images/README_photos/xCellence.jpg)
 </div>
@@ -76,7 +76,7 @@ We use a color sensor to detect and determine the color of lines, a gyroscope to
 
 # Engineering factor
 
-We used components from the MINDSTORMS EV3 Core Set, Expansion Set, a Pixy2, some other technic pieces from other sets and 3D printed [case for Pixy](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models/Pixy2Case). List of Lego EV3 sets we use in Bricklink can be found [here](https://www.bricklink.com/catalogList.asp?catType=S&catString=166.59.800)
+We used components from the MINDSTORMS EV3 Core Set, Expansion Set, a Pixy2, some other technic pieces from other sets and 3D printed [case for Pixy](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models/Pixy2_case). List of Lego EV3 sets we use in Bricklink can be found [here](https://www.bricklink.com/catalogList.asp?catType=S&catString=166.59.800)
 
 ***
 
