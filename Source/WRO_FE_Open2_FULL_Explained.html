@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WRO 2025 - Obstacle2.bp Explained</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; }
+        h1, h2 { color: #2a4b8d; }
+    </style>
+</head>
+<body>
+    <h1>WRO 2025 Future Engineers - Obstacle2.bp</h1>
+    <p>This program controls the robot for the 'Obstacle Challenge' task. It navigates the track, detects traffic pillars using the Pixy2 camera, and adjusts its path accordingly to avoid obstacles. It also reads and uses color markers to switch directions during laps.</p>
+<pre>import "Mods\AdvEncoder"
+import "Mods\AdvGyro"
+import "Mods\ColorRGB"
+import "Mods\SteerControl"
+import "Mods\AdvUltrasonic"
+import "Mods\Tool"
+import "Mods\AdvPixy"</pre>
+<p>Imports all required libraries for gyro, ultrasonic, steering, Pixy2 object detection, and color processing. These modules form the core of the robot's sensor and control systems.</p>
+<pre>Sensor.SetMode(1, 0)
+Sensor.SetMode(2, 4)
+Sensor.SetMode(3, 0)</pre>
+<p>Sensor 1: Ultrasonic front, Sensor 2: Color in RGB mode, Sensor 3: Likely used for auxiliary input or not used in this round.</p>
+<pre>AdvGyro.CheckReset(3, result)
+While result = 0
+  Program.Delay(1000)
+  AdvGyro.HardReset(3)
+  AdvGyro.CheckReset(3, result)
+EndWhile</pre>
+<p>Ensure proper reset of the gyro on port 3. Repeats until the sensor returns success.</p>
+<pre>col = EV3File.OpenRead("col")
+Rmin = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Rmax = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Gmin = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Gmax = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Bmin = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Bmax = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+ColorRGB.Config(Rmin, Rmax, Gmin, Gmax, Bmin, Bmax)</pre>
+<p>Reads RGB calibration values and configures the color sensor normalization system.</p>
+<pre>AdvGyro.ResetPort3(0)
+AdvEncoder.Config()
+SteerControl.Config(1.5, 0.05, 3, 40, 77)</pre>
+<p>Initializes gyro, encoder, and steering PID with specified tuning values.</p>
+<pre>MotorC.StartPower(-80)
+Program.Delay(2000)
+MotorC.ResetCount()</pre>
+<p>Starts steering motor briefly and resets its encoder to zero after movement.</p>
+<pre>angleKp = 0.7
+angleKd = 1
+angleOld = 0
+clockWise = 0
+turnCounter = 0
+turnAngle = 88
+UArtReady = 0
+I2CReady = 0
+SteeringReady = 0
+aimx=30
+distance=2000
+yCameraRange=20</pre>
+<p>Initial variables: control constants, robot orientation tracking, turn logic, Pixy2 tracking tolerance, and inter-thread flags.</p>
+</body></html><pre>Sub UArt
+  UArtReady = 1
+  While 1=1
+    AdvGyro.WritePort2(gyroAngle)
+    ColorRGB.ReadPort3(r, g, b)
+    AdvUltrasonic.ReadPort1(RDistance)
+    AdvUltrasonic.ReadPort4(LDistance)
+  EndWhile
+EndSub</pre>
+<p>Thread that constantly updates sensor readings: gyro angle, RGB color values, and distances from ultrasonic sensors (left and right). Sets UArtReady when ready.</p>
+<pre>Sub Steering
+  SteeringReady = 1
+  While 1=1
+    SteerControl.Core(MotorC.GetTacho(), powerC)
+    MotorC.StartPower(powerC)
+  EndWhile
+EndSub</pre>
+<p>Thread that handles the PID steering control loop. Continuously calculates steering correction based on motor C encoder and sends updated power.</p>
+<pre>Sub Display
+  DisplayReady = 1
+  While 1=1
+    LCD.Text(1, 10, 10, 2, r)
+    LCD.Text(1, 10, 40, 2, g)
+    LCD.Text(1, 10, 70, 2, b)
+    LCD.Text(1, 10, 100, 2, isWhite)
+    Program.Delay(25)
+    LCD.Clear()
+  EndWhile
+EndSub</pre>
+<p>Optional thread for debugging: displays current RGB values and whether white is detected. Runs in a loop every 25 ms.</p>
+<pre>Function ColorCheck(out number isWhite, out number isOrange)
+  If @b < 50 Then
+    isWhite = 0
+  Else
+    isWhite = 1
+  EndIf
+  If @r > 85 Then
+    isOrange = 1
+  Else
+    isOrange = 0
+  EndIf
+EndFunction</pre>
+<p>Helper function that determines whether the robot sees a white line or an orange marker based on normalized RGB values.</p>
+<pre>Function AngleCore(in number angle, out number aim)
+  aim = @angleKp * angle + @angleKd * (angle - @angleOld)
+  @angleOld = angle
+EndFunction</pre>
+<p>Calculates a PID-based correction value from the current and previous gyro angle for steering.</p>
+<pre>Function Reset(in number turnAngle)
+  If @clockWise = 0 Then
+    AdvGyro.ResetPort2(@gyroAngle + turnAngle)
+  Else
+    AdvGyro.ResetPort2(@gyroAngle - turnAngle)
+  EndIf
+  AdvGyro.WritePort2(@gyroAngle)
+  @turnCounter++
+  Time.Reset1()
+EndFunction</pre>
+<p>Resets the gyro angle after a corner is completed. Adjusts based on whether robot is turning left or right. Increments lap counter.</p>
+<pre>Function Center()
+  Tool.select(@clockwise, @LDistance, @RDistance, Distance)
+  If Distance > 100 Then
+    Distance = 0
+  EndIf
+  Distance = Math.Cos(Math.GetRadians(@gyroAngle * 1.3)) * Distance
+  Tool.select(@clockwise,Distance-@aimx,@aimx-Distance,Distance) 
+  Tool.constrain(Distance,-25,25,U)
+  AngleCore((@gyroAngle+U)*1.5,aim)
+  SteerControl.SetTarget(aim)
+EndFunction</pre>
+<p>Main wall-following logic. It calculates the offset from the desired distance to the wall, applies cosine correction for angular offset, then steers accordingly using PID.</p>
+<pre>Function Start()
+  isWhite = 1
+  isOrange = 0
+  MotorAB.StartPower(50)
+  Time.Reset1()
+  While isWhite = 1 Or Time.Get1() < 1000
+    AngleCore(@gyroAngle, angle)
+    SteerControl.SetTarget(angle)
+    ColorCheck(isWhite, isOrange)
+  EndWhile 
+  @clockwise = isOrange 
+  Speaker.Tone(50, 3000, 100)
+
+  Tool.select(@clockwise, @LDistance, @RDistance, Distance)
+  If Distance >= 50 Then
+    arriv = 200
+  Else
+    If Distance >= 39 Then
+      arriv = 100
+    Else
+      arriv = 35
+    EndIf
+  EndIf
+  MotorA.ResetCount()
+  While MotorA.GetTacho()<arriv
+    Center()
+  EndWhile
+
+  Reset(@turnAngle)
+EndFunction</pre>
+<p>This function starts the race: waits for the white line to disappear, determines clockwise direction from the orange line, approaches the first turn, then resets the angle to begin lap tracking.</p>
+<pre>Thread.Run = UArt
+Thread.Run = Steering
+Thread.Run = Display
+
+While UArtReady = 0 Or SteeringReady = 0 Or DisplayReady = 0
+
+EndWhile</pre>
+<p>Launches all sensor, steering, and display threads and waits for them to be initialized before starting the main logic.</p>
+<pre>Start()
+MotorAB.StartPower(100)
+
+While turnCounter<12
+  isWhite = 1
+  isOrange = 0
+  While @clockWise<>isOrange Or isWhite=1 Or Time.Get1() < 2000 
+    Center()
+    ColorCheck(isWhite, isOrange)
+  EndWhile
+  Speaker.Tone(50, 3000, 100)
+  Reset(turnAngle)
+  Time.Reset1()
+EndWhile</pre>
+<p>Runs the main race loop: drive until color sensor sees a valid orange turn marker while off white. Then reset orientation. Repeat until 12 corners are completed (3 laps).</p>
+<pre>MotorA.ResetCount()
+While MotorA.GetTacho()<1500
+  Center()
+EndWhile</pre>
+<p>After completing 3 laps, the robot drives forward to return to the starting section using wall-following logic.</p>
+<pre>MotorAB.OffAndBrake()
+Speaker.Tone(100, 3000, 300)
+Speaker.Wait()
+Speaker.Tone(100, 3000, 300)
+Speaker.Wait()
+Speaker.Tone(100, 3000, 300)
+Speaker.Wait()</pre>
+<p>Stops both driving motors and plays three tones to signal race completion.</p>
+</body></html>
