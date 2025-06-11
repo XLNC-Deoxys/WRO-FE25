@@ -104,7 +104,7 @@ We use a color sensor to detect and determine the color of lines, a gyroscope to
 # Engineering factor
 
 We used components from the MINDSTORMS EV3 Core Set, Expansion Set, a Pixy2, some other technic pieces from other sets and 3D printed [case for Pixy](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models/Pixy2_case).
-We use a new reinforced differential because it does not slip and can withstand any loads. We selected the diameter of the wheels so that the robot's design would be as simple as possible and the robot would be perpendicular to the ground.
+We use a new reinforced differential because it does not slip and can withstand any loads. We selected the diameter of the wheels so that the robot's design would be as simple as possible and the robot would be perpendicular to the ground. Our robot is made entirely of grey parts.
 List of Lego EV3 sets we use in Bricklink can be found [here](https://www.bricklink.com/catalogList.asp?catType=S&catString=166.59.800)
 
 ***
