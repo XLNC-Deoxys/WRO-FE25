@@ -1,10 +1,10 @@
-# WRO 2025 - `Open2.bp` Program Explanation
+# `Open2.bp` program explanation
 
-This document explains the full logic and structure of the `Open2.bp` program used in the **Open Challenge** of WRO Future Engineers 2025. The robot must autonomously drive three laps while maintaining proper distance and direction using gyroscopic and ultrasonic feedback. This code is designed for EV3 using the CLEV3R environment.
+This document explains the full logic and structure of the `Open2.bp` program used in the **Open Challenge** of WRO Future Engineers 2025. The robot must autonomously drive three laps while maintaining proper distance and direction using gyroscopic and ultrasonic feedback.
 
 ---
 
-## 📦 Imports and Sensor Setup
+## Imports and Sensor Setup
 
 ```vbnet
 import "Mods\AdvEncoder"
@@ -24,7 +24,7 @@ These are custom libraries used for handling sensors and control systems:
 
 ---
 
-## 🔧 Sensor Modes and Gyro Initialization
+## Sensor Modes and Gyro Initialization
 
 ```vbnet
 Sensor.SetMode(1, 0)
@@ -52,7 +52,7 @@ Resets the gyro sensor on port 2. The loop waits until it's confirmed reset.
 
 ---
 
-## 🎨 Color Calibration Loading
+## Color Calibration Loading
 
 ```vbnet
 col = EV3File.OpenRead("col")
@@ -69,7 +69,7 @@ Loads the previously saved RGB calibration values (from `Calibration.bp`) and co
 
 ---
 
-## ⚙️ Subsystems Configuration and Variables
+## Subsystems Configuration and Variables
 
 ```vbnet
 AdvGyro.ResetPort2(0)
@@ -105,7 +105,7 @@ Variables for PID steering, state management, and target angle handling.
 
 ---
 
-## 🧵 Threads: Sensor Input, Steering, and Display
+## Threads: Sensor Input, Steering, and Display
 
 ### UArt (sensor update thread)
 ```vbnet
@@ -155,7 +155,7 @@ Displays current RGB values and `isWhite` detection on screen for debugging.
 
 ---
 
-## 🎯 Supporting Functions
+## Supporting Functions
 
 ### Color Classification
 ```vbnet
@@ -200,7 +200,7 @@ Function Reset(in number turnAngle)
   Time.Reset1()
 EndFunction
 ```
-Re-calibrates gyro after each turn and increases lap segment count.
+Resets gyro after each turn and counts laps.
 
 ---
 
@@ -222,7 +222,7 @@ Calculates optimal steering based on side wall distances to keep robot centered.
 
 ---
 
-## 🚦 Start Routine
+## Start Routine
 
 ```vbnet
 Function Start()
@@ -257,11 +257,11 @@ Function Start()
 EndFunction
 ```
 
-Robot moves forward until the white line ends or timeout, checks direction (orange line = clockwise), calculates how far to go before first turn, and centers before resetting gyro.
+Robot moves forward until see the line or timeout, checks direction (orange line = clockwise), calculates how far to go before first turn, and centers before resetting gyro.
 
 ---
 
-## 🔁 Main Loop: Navigate 3 Laps
+## Main Loop: Navigate 3 Laps
 
 ```vbnet
 Thread.Run = UArt
@@ -294,7 +294,7 @@ EndWhile
 
 ---
 
-## 🏁 Finish Logic
+## Finish Logic
 
 ```vbnet
 MotorA.ResetCount()
