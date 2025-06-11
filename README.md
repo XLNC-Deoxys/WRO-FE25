@@ -17,7 +17,7 @@
     * [Instruction](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Instruction.pdf)
 * [Power and sense management](#power-and-sense-management)
   * [Power management](#power-management)
-    * [Schemes](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Schemes)
+    * [Schemes](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Schemes.pdf)
   * [Sensor management](#sensor-management)
     * [Ultrasonic research](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Ultrasonic_research/README.md) 
 * [Engineering factor](#engineering-factor)
