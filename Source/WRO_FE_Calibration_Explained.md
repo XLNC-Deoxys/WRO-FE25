@@ -1,17 +1,17 @@
-# WRO 2025 - `Calibration.bp` Program Explanation
+# `Calibration.bp` program explanation
 
-This document explains the `Calibration.bp` program for WRO Future Engineers 2025. It calibrates the color sensor by rotating and capturing min/max RGB values on the ground, saving them for use in later programs like `Open2.bp` and `Obstacle2.bp`.
+This document explains our `Calibration.bp` program. It calibrates the color sensor by rotating and capturing min/max RGB values on the ground, saving them for use in later programs like `Open2.bp` and `Obstacle2.bp`.
 
 ---
 
-## 🎯 Purpose
+## Purpose
 
 - Normalize lighting and surface colors.
 - Save calibrated min/max RGB values into a file called `col`.
 
 ---
 
-## 🔄 Code Breakdown
+## Code Breakdown
 
 ### Sensor Mode and Initial Motor Spin
 
