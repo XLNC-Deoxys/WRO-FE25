@@ -22,7 +22,10 @@
     * [Ultrasonic research](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Ultrasonic_research/README.md) 
 * [Engineering factor](#engineering-factor)
 * [Obstacle management](#obstacle-management)
-  * [Program and exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Source)
+  * [Obstacle program exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Obstacle_Explanation.md)
+  * [Open program exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Open_Explanation.md)
+  * [Calibration program exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Calibration_Explanation.md)
+  * [Pseudocode](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Pseudocode.py)
 * [Performance video](#performance-video)
   * [Qualification](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW)
   * [Obstacle](https://youtu.be/IbS0yFTRe58?si=Fjd2noFWhd0FMp65)
@@ -59,8 +62,8 @@ We use a one **EV3 Medium Motor** for steering and two medium motors in the back
 - Wheel circumference = 2 * π * R = 0.176 m
 
 **Calculation:**
-- Wheel RPM = 250 * (21/11) ≈ 477.3 RPM
-- Robot linear speed = (Wheel RPM / 60) * Circumference ≈ **1.40 m/s**
+- Wheel RPM = 250 * (7/11) ≈ 159.1 RPM
+- Robot linear speed = (Wheel RPM / 60) * Circumference ≈ **0.47 m/s**
 
 ## Chassis design
 <div align=center>
@@ -68,14 +71,14 @@ We use a one **EV3 Medium Motor** for steering and two medium motors in the back
  ![photo](./Images/README_photos/Steering_geometry.jpg)
 </div>
 
-We installed all the motors vertically to make the robot smaller. Our brick is positioned with the battery forward to shift the center of gravity to the font wheels to increase treir grip. The steering motor works without gears for increased speed and precision. The width of our robot is 16 cm and the length of our robot is 15.9 cm, which allows us to park perpendicularly. Gears on the rear motors are 3:1 (excluding differential) and diameter of the wheels is 56 mm. Our robot is rear-wheel drive. This greatly simplifies the design and improves maintainability. We have a differential on the rear axle, which helps reduce the turning radius.
+We installed all the motors vertically to make the robot smaller. Our brick is positioned with the battery forward to shift the center of gravity to the font wheels to increase treir grip. The steering motor works without gears for increased speed and precision. The width of our robot is 16 cm and the length of our robot is 15.9 cm, which allows us to park perpendicularly. Gears on the rear motors are 1:1 (excluding differential) and diameter of the wheels is 56 mm. Our robot is rear-wheel drive. This greatly simplifies the design and improves maintainability. We have a differential on the rear axle, which helps reduce the turning radius.
 Last year we tried to use the Ackerman steering system ([photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Ackermann_steering_geometry.png)). The backlash was too big, we decided to abandon this mechanism this year. This allowed to increase the maximum rotation angle and simplify the design.
 3D models of the robot made in BrickLink Studio 2.0 and Pixy2 mount are located in the [Models](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models) folder. Building instructions located in the [Instruction](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Instruction.pdf) file.
 
 <div align=center>
 
  <img src="./Images/Robot_renders/Robot.png" height="1000">
-</div> */
+</div>
 
 ***
 
@@ -100,7 +103,9 @@ We use a color sensor to detect and determine the color of lines, a gyroscope to
 
 # Engineering factor
 
-We used components from the MINDSTORMS EV3 Core Set, Expansion Set, a Pixy2, some other technic pieces from other sets and 3D printed [case for Pixy](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models/Pixy2_case). List of Lego EV3 sets we use in Bricklink can be found [here](https://www.bricklink.com/catalogList.asp?catType=S&catString=166.59.800)
+We used components from the MINDSTORMS EV3 Core Set, Expansion Set, a Pixy2, some other technic pieces from other sets and 3D printed [case for Pixy](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models/Pixy2_case).
+We use a new reinforced differential because it does not slip and can withstand any loads. We selected the diameter of the wheels so that the robot's design would be as simple as possible and the robot would be perpendicular to the ground.
+List of Lego EV3 sets we use in Bricklink can be found [here](https://www.bricklink.com/catalogList.asp?catType=S&catString=166.59.800)
 
 ***
 
