@@ -22,7 +22,7 @@ Program.Delay(2000)
 ```
 
 - Sets **Port 3** (color sensor) to RGB mode.
-- Starts **Motor C** (likely turning sensor or camera platform).
+- Starts **Motor C** (Drive motor) to move forward.
 - Waits 2 seconds for stabilization.
 
 ---
@@ -98,11 +98,11 @@ EV3File.WriteLine(col, Gmin)
 EV3File.WriteLine(col, Gmax)
 ```
 
-Writes all min/max RGB values to the file. **Important note**: the order here is R, B, G instead of R, G, B. This should be kept consistent when reading.
+Writes all min/max RGB values to the file.
 
 ---
 
-## 📁 Output
+## Output
 
 The file `col` will contain:
 1. Minimum Red
@@ -118,7 +118,7 @@ These are later used in:
 
 ---
 
-## ✅ Summary
+## Summary
 
 This calibration routine is essential for robust RGB-based color classification. It helps in reliably distinguishing between white lines, black roads, and colored markers.
 
