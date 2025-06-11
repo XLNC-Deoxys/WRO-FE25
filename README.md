@@ -142,10 +142,21 @@ Here is the link to [qualification]([https://youtu.be/](https://youtu.be/IbS0yFT
 ![photo](./Images/Team_photos/Funny.jpg)
 
 ## Robot photos
-![photo](./Images/Robot_photos/Gotham.png)
-![photo](./Images/Robot_photos/Top.jpg)
-![photo](./Images/Robot_photos/Bottom.jpg)
-![photo](./Images/Robot_photos/Front.jpg)
-![photo](./Images/Robot_photos/Rear.jpg)
-![photo](./Images/Robot_photos/Left.jpg)
-![photo](./Images/Robot_photos/Right.jpg)
+![Robot](./Images/Robot_renders/Gotham.png)
+
+<div align="center">
+  <table>
+    <tr align="center">
+      <td><img src="./Images/Robot_photos/Top.jpg" alt="Robot Photo 1" width="100%"></td>
+      <td><img src="./Images/Robot_photos/Front.jpg" alt="Robot Photo 2" width="100%"></td>
+      <td><img src="./Images/Robot_photos/Left.jpg" alt="Robot Photo 3" width="100%"></td>
+    </tr>
+    <tr align="center">
+      <td><img src="./Images/Robot_photos/Bottom.jpg" alt="Robot Photo 4" width="100%"></td>
+      <td><img src="./Images/Robot_photos/Rear.jpg" alt="Robot Photo 5" width="100%"></td>
+      <td><img src="./Images/Robot_photos/Right.jpg" alt="Robot Photo 6" width="100%"></td>
+    </tr>
+  </table>
+</div>
+
+  <li>You can see a photo of the robot <a href="https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Images/Robot_photos" target="_blank">here</a></li>
