@@ -72,11 +72,11 @@ We installed all the motors vertically to make the robot smaller. Our brick is p
 Last year we tried to use the Ackerman steering system ([photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Ackermann_steering_geometry.png)). The backlash was too big, we decided to abandon this mechanism this year. This allowed to increase the maximum rotation angle and simplify the design.
 3D models of the robot made in BrickLink Studio 2.0 and Pixy2 mount are located in the [Models](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models) folder. Building instructions located in the [Instruction](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Instruction.pdf) file.
 
-/* тут рендер робота (когда закончиим)
 <div align=center>
 
- <img src="./Images/Robot_photos/Batmobile.png" height="1000">
+ <img src="./Images/Robot_renders/Robot.png" height="1000">
 </div> */
+
 ***
 
 # Power and sense management
