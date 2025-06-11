@@ -36,19 +36,32 @@
 
 ## Motor selection
 
-Comparison of motors:
-The large motor runs at 160-170 rpm, with a running torque of 20 Ncm and a stall torque of 40 Ncm (slower, but stronger).
-The medium motor runs at 240-250 rpm, with a running torque of 8 Ncm and a stall torque of 12 Ncm (faster, but less powerful).
-We use a one medium motor for steering and two medium motors in the back for driving. We use medium motors because they are lighter, faster, more accurate and have enough torque.
-<!The medium motor is lighter and is sufficient for steering, while the larger motors have more power, which helps them be the main driving force of the robot.>
+### EV3 Motor Comparison
+
+| Motor              | Nominal Speed (RPM) | Running Torque (N·cm) | Stall Torque (N·cm) | Mass (g) | Power Consumption (W) |
+|-------------------|---------------------|------------------------|----------------------|----------|------------------------|
+| EV3 Medium Motor  | 250                 | 8                      | 12                   | 75       | 2.5                    |
+| EV3 Large Motor   | 160                 | 20                     | 40                   | 110      | 4.0                    |
+
+We use a one **EV3 Medium Motor** for steering and two medium motors in the back for driving. We use medium motors because they are lighter, faster, more accurate and have enough torque.
+
+### Robot Speed Estimation
+
+**Parameters:**
+- Gear ratio: 21:11 (increasing)
+- Wheel diameter: 56 mm → Radius = 28 mm = 0.028 m
+- Motor speed: 250 RPM (Medium Motor)
+- Wheel circumference = 2 * π * R = 0.176 m
+
+**Calculation:**
+- Wheel RPM = 250 * (21/11) ≈ 477.3 RPM
+- Robot linear speed = (Wheel RPM / 60) * Circumference ≈ **1.40 m/s**
 
 ## Chassis design
 <div align=center>
 
  ![photo](./Images/README_photos/Steering_geometry.jpg)
 </div>
-
-
 
 We installed all the motors vertically to make the robot smaller. Our brick is positioned with the battery forward to shift the center of gravity to the font wheels to increase treir grip. The steering motor works without gears for increased speed and precision. The width of our robot is 16 cm and the length of our robot is 15.9 cm, which allows us to park perpendicularly. Gears on the rear motors are 3:1 (excluding differential) and diameter of the wheels is 56 mm. Our robot is rear-wheel drive. This greatly simplifies the design and improves maintainability. We have a differential on the rear axle, which helps reduce the turning radius.
 Last year we tried to use the Ackerman steering system ([photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Ackermann_steering_geometry.png)). The backlash was too big, we decided to abandon this mechanism this year. This allowed to increase the maximum rotation angle and simplify the design.
@@ -93,6 +106,10 @@ First you need to configure Pixy2 to detect green and red pillars. Then you need
 ### Obstacle
 
 The Obstacle2.bp program continuously gathers data from Pixy2, ultrasonic sensors, and the gyroscope. It uses the Pixy2 signature to determine if the object is green or red, and calculates a mirrored trajectory equation accordingly. The robot adjusts its path using these equations and follows the calculated curve while avoiding the obstacle. If no object is detected, it uses ultrasonic wall-centering to continue navigating safely.
+
+#### Pseudocode
+
+https://github.com/XLNC-Deoxys/WRO-FE25/blob/4a5e3cee411c91461a604e7479d26907a3826eb7/Source/Pseudocode.py#L1-L52
 
 ### Open
 The Open2.bp program is used for the open challenge. The robot completes three laps while maintaining a balanced position between two side walls. It reads distances from left and right ultrasonic sensors and uses a gyro-based PID controller to steer straight. Color sensors detect orange turning points, which trigger a gyro reset and initiate a 90° turn. The robot dynamically selects direction based on detected color, completing the required path using modular and reactive logic.
