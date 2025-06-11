@@ -46,7 +46,7 @@ We use a one medium motor for steering and two medium motors in the back for dri
 ## Chassis design
 <div align=center>
 
- ![photo](./Images/README_photos/Ackermann_steering_geometry.png)
+ ![photo](./Images/README_photos/Steering_geometry.jpg)
 </div>
 
 
