@@ -132,7 +132,7 @@ The final robot program with explanation and pseudocode is located in the [Sourc
 
 # Performance video
 
-Here is the link to [qualification]([https://youtu.be/](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR)](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW)) and [obstacle]([https://youtu.be/](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR)) rounds demostration.
+Here is the link to [qualification](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW) and [obstacle](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR) rounds demostration.
 
 ***
 
@@ -159,4 +159,4 @@ Here is the link to [qualification]([https://youtu.be/](https://youtu.be/IbS0yFT
   </table>
 </div>
 
-  <li>You can see a photo of the robot <a href="https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Images/Robot_photos" target="_blank">here</a></li>
+  <li>You can see a photos of the robot <a href="https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Images/Robot_photos" target="_blank">here</a></li>
