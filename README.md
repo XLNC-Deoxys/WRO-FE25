@@ -34,6 +34,11 @@
 
 # Mobility Management
 
+<div align=center>
+
+ ![photo](./Images/Robot_photos/Components.png)
+</div>
+
 ## Motor selection
 
 ### EV3 Motor Comparison
@@ -84,6 +89,13 @@ The power for the EV3 Brick and the whole vehicle comes from a rechargeable 10V 
 
 We use a color sensor to detect and determine the color of lines, a gyroscope to determine the angle of the robot, one ultrasonic sensor in the “obstacle” (clockwise or counterclockwise) or two in the “open” to determine the distance between the robot and the wall. We also use the Pixy2 Camera to detect and determine the color of road signs. On April 8, we made a graph of error versus angle. To determine the most accurate distance of the robot from the border, we conducted a research, which you can find in the [Researches](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Ultrasonic_research). The ultrasonic sensor shows incorrect data if it is located at an angle. On April 8, we made a graph of error versus angle.
 
+| Sensor |	Port	| Function	| Reason for selection |
+|--------|------|----------|----------------------|
+| Pixy2 |	1 |	Detect red/green obstacle	| Color+position-based path planning |
+| Gyroscope |	2 |	Heading & turns	| Accurate angle tracking for PID |
+| Color Sensor |	3	| Detect lines |	Reliable surface classification |
+| Ultrasonic | 4	| Wall distance |	Enables centering in narrow passages |
+
 ***
 
 # Engineering factor
@@ -114,7 +126,7 @@ https://github.com/XLNC-Deoxys/WRO-FE25/blob/4a5e3cee411c91461a604e7479d26907a38
 ### Open
 The Open2.bp program is used for the open challenge. The robot completes three laps while maintaining a balanced position between two side walls. It reads distances from left and right ultrasonic sensors and uses a gyro-based PID controller to steer straight. Color sensors detect orange turning points, which trigger a gyro reset and initiate a 90° turn. The robot dynamically selects direction based on detected color, completing the required path using modular and reactive logic.
 
-The final robot program with explanation is located in the [Source](https://github.com/XLNC-Deoxys/WRO-FE24/tree/main/Source).
+The final robot program with explanation and pseudocode is located in the [Source](https://github.com/XLNC-Deoxys/WRO-FE24/tree/main/Source).
 
 ***
 
