@@ -1,10 +1,10 @@
-# WRO 2025 - `Obstacle2.bp` Program Explanation
+# `Obstacle2.bp` program explanation
 
 This document explains the full logic and structure of the `Obstacle2.bp` program used in the **Obstacle Challenge** of WRO Future Engineers 2025. The robot must autonomously avoid obstacles while following the track and identifying colored turning points. It uses sensors (gyro, color, ultrasonic, and PixyCam) with advanced PID steering.
 
 ---
 
-## 📦 Imports and Sensor Setup
+## Imports and Sensor Setup
 
 ```vbnet
 import "Mods\AdvEncoder"
@@ -38,7 +38,7 @@ Sensor setup:
 
 ---
 
-## 🔄 Gyroscope Reset Loop
+## Gyroscope Reset Loop
 
 ```vbnet
 AdvGyro.CheckReset(3, result)
@@ -53,7 +53,7 @@ Ensures gyro on port 3 is properly reset before continuing.
 
 ---
 
-## 🎨 Load Color Calibration
+## Load Color Calibration
 
 ```vbnet
 col = EV3File.OpenRead("col")
@@ -66,11 +66,11 @@ Bmax = EV3File.ConvertToNumber(EV3File.ReadLine(col))
 ColorRGB.Config(Rmin, Rmax, Gmin, Gmax, Bmin, Bmax)
 ```
 
-Loads RGB bounds from calibration file for consistent color detection across environments.
+Loads RGB bounds from calibra.tion file for consistent color detection across environments.
 
 ---
 
-## ⚙️ Subsystem Setup
+## Subsystem Setup
 
 ```vbnet
 AdvGyro.ResetPort3(0)
@@ -107,7 +107,7 @@ Declares variables for PID, control flags, turn angle, and vision targeting.
 
 ---
 
-## 🧵 Threads
+## Threads
 
 ### UArt Thread (Sensor Updates)
 
@@ -137,7 +137,7 @@ Sub I2C
 EndSub
 ```
 
-Reads the largest object detected by PixyCam (usually the obstacle block), including its coordinates and signature ID.
+Reads the largest object detected by PixyCam (obstacle block), including its coordinates and signature ID.
 
 ---
 
@@ -157,7 +157,7 @@ Applies steering power using PID correction.
 
 ---
 
-## 🔍 Support Functions
+## Support Functions
 
 ### Color Recognition
 
@@ -176,7 +176,7 @@ Function ColorCheck(out number isWhite, out number isOrange)
 EndFunction
 ```
 
-Identifies white background and orange turn points using RGB values.
+Identifies blue and orange turn lines using RGB values.
 
 ---
 
@@ -189,7 +189,7 @@ Function AngleCore(in number angle, out number aim)
 EndFunction
 ```
 
-Sets the new target angle for steering control based on gyro angle.
+Sets the new target angle for steering control based on gyro angle and using PD regulator.
 
 ---
 
@@ -275,11 +275,11 @@ Function Center()
 EndFunction
 ```
 
-Keeps robot aligned with walls using gyro and distance feedback.
+Keeps robot aligned with walls using gyro and ultrasonic sensor feedback.
 
 ---
 
-## 🚦 Start and Main Loop
+## Start and Main Loop
 
 ```vbnet
 Function Start()
@@ -317,7 +317,7 @@ Starts sensor, PixyCam, and steering threads. Waits for readiness.
 
 ---
 
-## 🔁 Main Turn Logic
+## Main Turn Logic
 
 ```vbnet
 While turnCounter<12
@@ -336,7 +336,7 @@ Robot turns 12 times (3 laps), detecting turns using color and navigating with o
 
 ---
 
-## 🏁 Finish
+## Finish
 
 ```vbnet
 MotorA.ResetCount()
