@@ -1,7 +1,7 @@
 <div align=center>
  XLNC Deoxys team's repository for WRO Future Engineers 2025
  
- Members: Dastan Musrepov, Zhanibek Danabek, Ansar (Frosis)
+ Members: Dastan Musrepov, Zhanibek Danabek
 
  ![logo](./Images/README_photos/xCellence.jpg)
 </div>
@@ -24,8 +24,8 @@
 * [Obstacle management](#obstacle-management)
   * [Program and pseudocode](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Source)
 * [Performance video](#performance-video)
-  * [Qualification]([https://youtu.be/wz5MyXlZ5nA](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR)](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW))
-  * [Obstacle]([https://youtu.be/M8BKB8U_-hU](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR](https://youtu.be/IbS0yFTRe58?si=Fjd2noFWhd0FMp65))
+  * [Qualification](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW)
+  * [Obstacle](https://youtu.be/IbS0yFTRe58?si=Fjd2noFWhd0FMp65)
   * [Obstacle](https://youtu.be/)
 * [Pictures](#pictures)
   * [Team photos](#team-photos)
@@ -55,11 +55,11 @@ We installed all the motors vertically to make the robot smaller. Our brick is p
 Last year we tried to use the Ackerman steering system ([photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Ackermann_steering_geometry.png)). The backlash was too big, we decided to abandon this mechanism this year. This allowed to increase the maximum rotation angle and simplify the design.
 3D models of the robot made in BrickLink Studio 2.0 and Pixy2 mount are located in the [Models](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models) folder. Building instructions located in the [Instruction](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Instruction.pdf) file.
 
-тут рендер робота (когда закончиим)
+/* тут рендер робота (когда закончиим)
 <div align=center>
 
  <img src="./Images/Robot_photos/Batmobile.png" height="1000">
-</div>
+</div> */
 ***
 
 # Power and sense management
