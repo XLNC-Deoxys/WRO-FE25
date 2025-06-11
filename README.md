@@ -88,7 +88,7 @@ First you need to configure Pixy2 to detect green and red pillars. Then you need
  ![photo](./Images/README_photos/Trajectory_of_pillar.jpg)
 </div>
 
-The final robot program with pseudocode is located in the [Source](https://github.com/XLNC-Deoxys/WRO-FE24/tree/main/Source).
+The final robot program with explanation is located in the [Source](https://github.com/XLNC-Deoxys/WRO-FE24/tree/main/Source).
 
 ***
 
