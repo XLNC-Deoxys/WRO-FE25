@@ -15,12 +15,12 @@
   * [Chassis design](#chassis-design)
     * [Models](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models)
     * [Instruction](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Instruction.pdf)
+  * [Engineering factor](#engineering-factor)
 * [Power and sense management](#power-and-sense-management)
   * [Power management](#power-management)
     * [Schemes](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Scheme.pdf)
   * [Sensor management](#sensor-management)
     * [Ultrasonic research](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Ultrasonic_research/README.md) 
-* [Engineering factor](#engineering-factor)
 * [Obstacle management](#obstacle-management)
   * [Obstacle program exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Obstacle_Explanation.md)
   * [Open program exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Open_Explanation.md)
@@ -75,6 +75,12 @@ We installed all the motors vertically to make the robot smaller. Our brick is p
 Last year we tried to use the Ackerman steering system ([photo above](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Images/README_photos/Ackermann_steering_geometry.png)). The backlash was too big, we decided to abandon this mechanism this year. This allowed to increase the maximum rotation angle and simplify the design.
 3D models of the robot made in BrickLink Studio 2.0 and Pixy2 mount are located in the [Models](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models) folder. Building instructions located in the [Instruction](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Instruction.pdf) file.
 
+ ## Engineering factor
+
+We used components from the MINDSTORMS EV3 Core Set, Expansion Set, a Pixy2, some other technic pieces from other sets and 3D printed [case for Pixy](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models/Pixy2_case).
+We use a new reinforced differential because it does not slip and can withstand any loads. We selected the diameter of the wheels so that the robot's design would be as simple as possible and the robot would be perpendicular to the ground. Our robot is made entirely of grey parts.
+List of Lego EV3 sets we use in Bricklink can be found [here](https://www.bricklink.com/catalogList.asp?catType=S&catString=166.59.800)
+
 <div align=center>
 
  <img src="./Images/Robot_renders/Robot.png" height="1000">
@@ -98,14 +104,6 @@ We use a color sensor to detect and determine the color of lines, a gyroscope to
 | Gyroscope |	2 |	Heading & turns	| Accurate angle tracking for PID |
 | Color Sensor |	3	| Detect lines |	Reliable surface classification |
 | Ultrasonic | 4	| Wall distance |	Enables centering in narrow passages |
-
-***
-
-# Engineering factor
-
-We used components from the MINDSTORMS EV3 Core Set, Expansion Set, a Pixy2, some other technic pieces from other sets and 3D printed [case for Pixy](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Models/Pixy2_case).
-We use a new reinforced differential because it does not slip and can withstand any loads. We selected the diameter of the wheels so that the robot's design would be as simple as possible and the robot would be perpendicular to the ground. Our robot is made entirely of grey parts.
-List of Lego EV3 sets we use in Bricklink can be found [here](https://www.bricklink.com/catalogList.asp?catType=S&catString=166.59.800)
 
 ***
 
