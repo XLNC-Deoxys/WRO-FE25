@@ -27,8 +27,8 @@
   * [Calibration program exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Calibration_Explanation.md)
   * [Pseudocode](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Pseudocode.py)
 * [Performance video](#performance-video)
-  * [Qualification](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW)
-  * [Obstacle](https://youtu.be/IbS0yFTRe58?si=Fjd2noFWhd0FMp65)
+  * [Qualification](https://youtu.be/nNbZ0sVMQO8?si=B9W68_eUjR0Os-pi)
+  * [Obstacle](https://youtu.be/7eHMRto1uII?si=gZwUpWQbs9ktGe9v)
 * [Pictures](#pictures)
   * [Team photos](#team-photos)
   * [Robot photos](#robot-photos)
@@ -135,7 +135,7 @@ The final robot program with explanation and pseudocode is located in the [Sourc
 
 # Performance video
 
-Here is the link to [qualification](https://youtu.be/PEcvhSUIzB4?si=UgS1X2oOMbhzZKGW) and [obstacle](https://youtu.be/IbS0yFTRe58?si=sEzfAh8LpjgD5ZdR) rounds demostration.
+Here is the link to [qualification](https://youtu.be/nNbZ0sVMQO8?si=B9W68_eUjR0Os-pi) and [obstacle](https://youtu.be/7eHMRto1uII?si=gZwUpWQbs9ktGe9v) rounds demostration.
 
 ***
 
