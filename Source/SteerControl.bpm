@@ -1,0 +1,43 @@
+'Name: EV3 SteerControl module
+'Version: 1.0
+'Author: Robotek Mukash Madi 2024/08/02
+'---------------------------------
+
+import "Tool"
+
+number kP
+number kI
+number kD
+number limit
+number steer_center
+number steer_target
+number error_old
+number error_sum
+
+Function Config(in number in_kP, in number in_kI, in number in_kD, in number in_limit, in number in_steer_center)
+  kP = in_kP
+  kI = in_kI
+  kD = in_kD
+  limit = in_limit
+  steer_center = in_steer_center
+  steer_target = 0
+  error_old = 0
+  error_sum = 0
+EndFunction
+
+Function Core(in number encoder, out number power)
+  Tool.constrain(steer_target, 0 - limit, limit, target)
+  error = steer_center + target - encoder
+  pd = kP * error + kD * (error - error_old)
+  power = kI * error_sum + pd
+  error_sum = error_sum / 1.1 + error
+  error_old = error
+EndFunction
+
+Function SetTarget(in number target)
+  steer_target = target
+EndFunction
+
+Function ChangeLimit(in number in_limit)
+  limit = in_limit
+EndFunction

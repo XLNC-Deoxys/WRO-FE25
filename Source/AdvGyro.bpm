@@ -1,0 +1,87 @@
+'Name: EV3 AdvGyro module
+'Version: 1.1
+'Author: Robotek Mukash Madi 2024/08/15
+'---------------------------------
+
+import "ToolBox"
+
+number gyro_angle
+number gyro_last
+
+Function WritePort1(out number angle)
+  value = Sensor1.Raw1()
+  angle = value - gyro_last
+  ToolBox.AngleWrap(unwrapped_angle, angle)
+  gyro_angle = angle
+EndFunction
+
+Function WritePort2(out number angle)
+  value = Sensor2.Raw1()
+  unwrapped_angle = value - gyro_last
+  ToolBox.AngleWrap(unwrapped_angle, angle)
+  gyro_angle = angle
+EndFunction
+
+Function WritePort3(out number angle)
+  value = Sensor3.Raw1()
+  unwrapped_angle = value - gyro_last
+  ToolBox.AngleWrap(unwrapped_angle, angle)
+  gyro_angle = angle
+EndFunction
+
+Function WritePort4(out number angle)
+  value = Sensor4.Raw1()
+  unwrapped_angle = value - gyro_last
+  ToolBox.AngleWrap(unwrapped_angle, angle)
+  gyro_angle = angle
+EndFunction
+
+Function Read(out number angle)
+  angle = gyro_angle
+EndFunction
+
+Function ResetPort1(in number angle)
+  value = Sensor1.Raw1()
+  gyro_last = value - angle
+EndFunction
+
+Function ResetPort2(in number angle)
+  value = Sensor2.Raw1()
+  gyro_last = value - angle
+EndFunction
+
+Function ResetPort3(in number angle)
+  value = Sensor3.Raw1()
+  gyro_last = value - angle
+EndFunction
+
+Function ResetPort4(in number angle)
+  value = Sensor4.Raw1()
+  gyro_last = value - angle
+EndFunction
+
+Function HardReset(in number port)
+  'put the gyro into CAL mode.
+  Sensor.SetMode(port, 4)
+  'wait it apply
+  Program.Delay(550)
+  'put the gyro into angle mode.
+  Sensor.SetMode(port, 0)
+EndFunction
+
+Function CheckReset(in number port, out number result)
+  Sensor.SetMode(port, 0)
+  Sensor.ReadRawValue(port, 0)
+  Program.Delay(2000)
+  If Sensor.ReadRawValue(port, 0) <> 0 Then
+    result = 0
+    Speaker.Note(100, "C5", 100)
+    Speaker.Wait()
+    Speaker.Note(100, "C5", 100)
+    Speaker.Wait()
+    Speaker.Note(100, "C5", 100)
+    Speaker.Wait()
+  Else
+    result = 1
+  EndIf
+EndFunction

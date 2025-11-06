@@ -1,0 +1,13 @@
+'Name: EV3 Odometry module
+'Version: 1.0
+'Author: Robotek Mukash Madi 2024/08/18
+'---------------------------------
+
+Function getLargest(in number port, out number x, out number y, out number signature)
+  values = Sensor.ReadI2CRegisters(port, 1, 80, 6)
+  sig1 = values[0]
+  sig2 = values[1]
+  signature = (sig1 + sig2 * 256) - 8 * Math.Floor((sig1 + sig2 * 256) / 8)
+  x = values[2] - 128
+  y = values[3]
+EndFunction

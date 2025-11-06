@@ -1,0 +1,44 @@
+'Name: EV3 Odometry module
+'Version: 1.0
+'Author: Robotek Mukash Madi 2024/07/30
+'---------------------------------
+
+number coefficient
+
+number X
+number Y
+
+number reset
+number resXodom
+number resYodom
+
+Function Config(in number coef)
+  coefficient = coef
+  X = 0
+  Y = 0
+  reset = 0
+  resXodom = 0
+  resYodom = 0
+EndFunction
+
+Function Read(out number Xodom, out number Yodom)
+  Xodom = X
+  Yodom = Y
+EndFunction
+
+Function Write(in number angle, in number encChange)
+  If reset = 1 Then
+    X = resXodom
+    Y = resYodom
+    reset = 0
+  Else
+    X = X + (encChange / coefficient) * Math.Cos(Math.GetRadians(angle))
+    Y = Y + (encChange / coefficient) * Math.Sin(Math.GetRadians(angle))
+  EndIf
+EndFunction
+
+Function Reset(in number Xodom, in number Yodom)
+  resXodom = Xodom
+  resYodom = Yodom
+  reset = 1
+EndFunction

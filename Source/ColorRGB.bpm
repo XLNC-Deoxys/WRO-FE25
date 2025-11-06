@@ -1,0 +1,60 @@
+'Name: EV3 ColorRGB module
+'Version: 1.0
+'Author: Robotek Mukash Madi 2024/08/02
+'---------------------------------
+
+number s_red_b
+number s_red_k
+number s_blue_b
+number s_blue_k
+number s_green_b
+number s_green_k
+
+Function Config(in number red_min, in number red_max, in number blue_min, in number blue_max, in number green_min, in number green_max)
+  s_red_k = 100 / (red_max - red_min)
+  s_red_b = red_min * (-1) * s_red_k
+  s_blue_k = 100 / (blue_max - blue_min)
+  s_blue_b = blue_min * (-1) * s_blue_k
+  s_green_k = 100 / (green_max - green_min)
+  s_green_b = green_min * (-1) * s_green_k
+EndFunction
+
+Function ReadPort1(out number red, out number blue, out number green)
+  r = 0
+  g = 0
+  b = 0
+  Sensor1.Raw3(r, g, b)
+  red = r * s_red_k + s_red_b
+  blue = b * s_blue_k + s_blue_b
+  green = g * s_green_k + s_green_b
+EndFunction
+
+Function ReadPort2(out number red, out number blue, out number green)
+  r = 0
+  g = 0
+  b = 0
+  Sensor2.Raw3(r, g, b)
+  red = r * s_red_k + s_red_b
+  blue = b * s_blue_k + s_blue_b
+  green = g * s_green_k + s_green_b
+EndFunction
+
+Function ReadPort3(out number red, out number blue, out number green)
+  r = 0
+  g = 0
+  b = 0
+  Sensor3.Raw3(r, g, b)
+  red = r * s_red_k + s_red_b
+  blue = b * s_blue_k + s_blue_b
+  green = g * s_green_k + s_green_b
+EndFunction
+
+Function ReadPort4(out number red, out number blue, out number green)
+  r = 0
+  g = 0
+  b = 0
+  Sensor4.Raw3(r, g, b)
+  red = r * s_red_k + s_red_b
+  blue = b * s_blue_k + s_blue_b
+  green = g * s_green_k + s_green_b
+EndFunction

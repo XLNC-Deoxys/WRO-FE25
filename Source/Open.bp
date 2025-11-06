@@ -1,0 +1,203 @@
+'Importing our custom libraries
+import "Mods\AdvEncoder"
+import "Mods\AdvGyro"
+import "Mods\ColorRGB"
+import "Mods\SteerControl"
+import "Mods\AdvUltrasonic"
+import "Mods\Tool"
+
+'Setting up proper mods for sensors
+Sensor.SetMode(1, 0)
+Sensor.SetMode(2, 4)
+Sensor.SetMode(3, 0)
+Sensor.SetMode(4, 0)
+
+'Hard reset of gyro sensor
+AdvGyro.CheckReset(3, result)
+While result = 0
+  Program.Delay(1000)
+  AdvGyro.HardReset(3)
+  AdvGyro.CheckReset(3, result)
+EndWhile
+
+'Reading configuration of color sensor
+col = EV3File.OpenRead("col")
+Rmin = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Rmax = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Gmin = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Gmax = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Bmin = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+Bmax = EV3File.ConvertToNumber(EV3File.ReadLine(col))
+ColorRGB.Config(Rmin, Rmax, Gmin, Gmax, Bmin, Bmax)
+
+
+'Configuration of our custom libraries
+AdvGyro.ResetPort3(0)
+AdvEncoder.Config()
+SteerControl.Config(1.5, 0.05, 3, 40, 88)
+
+'Setting up steering mechanism
+MotorA.StartPower(-80)
+Program.Delay(2000)
+MotorA.ResetCount()
+
+'Setting up basic values of our variables
+angleKp = 0.8
+angleKd = 1.2
+angleOld = 0
+clockWise = 0
+turnCounter = 0
+turnAngle = 92
+UArtReady = 0
+SteeringReady = 0
+DisplayReady = 0
+aimx=30
+distance=2000
+
+Sub UArt
+  UArtReady = 1
+  While 1=1
+    AdvGyro.WritePort3(gyroAngle)
+    ColorRGB.ReadPort2(r, g, b)
+    AdvUltrasonic.ReadPort1(RDistance)
+    AdvUltrasonic.ReadPort4(LDistance)
+  EndWhile
+EndSub
+
+Sub Steering
+  SteeringReady = 1
+  While 1=1
+    SteerControl.Core(MotorA.GetTacho(), powerC)
+    MotorA.StartPower(powerC)
+  EndWhile
+EndSub
+
+Sub Display
+  DisplayReady = 1
+  While 1=1
+    LCD.Text(1, 10, 10, 2, r)
+    LCD.Text(1, 10, 40, 2, g)
+    LCD.Text(1, 10, 70, 2, b)
+    LCD.Text(1, 10, 100, 2, isWhite)
+    Program.Delay(25)
+    LCD.Clear()
+  EndWhile
+EndSub
+
+Function ColorCheck(out number isWhite, out number isOrange)
+  If @b < 50 Then
+    isWhite = 0
+  Else
+    isWhite = 1
+  EndIf
+  If @r > 85 Then
+    isOrange = 1
+  Else
+    isOrange = 0
+  EndIf
+EndFunction
+
+Function AngleCore(in number angle, out number aim)
+  aim = @angleKp * angle + @angleKd * (angle - @angleOld)
+  @angleOld = angle
+EndFunction
+
+Function Reset(in number turnAngle)
+  If @clockWise = 0 Then
+    AdvGyro.ResetPort3(@gyroAngle + turnAngle)
+  Else
+    AdvGyro.ResetPort3(@gyroAngle - turnAngle)
+  EndIf
+  AdvGyro.WritePort3(@gyroAngle)
+  @turnCounter++
+  Time.Reset1()
+EndFunction
+
+
+Function Center()
+  Tool.select(@clockwise, @LDistance, @RDistance, Distance)
+  If Distance > 100 Then
+    Distance = 0
+  EndIf
+  Distance = Math.Cos(Math.GetRadians(@gyroAngle * 1.3)) * Distance
+  Tool.select(@clockwise,Distance-@aimx,@aimx-Distance,Distance) 
+  Tool.constrain(Distance,-25,25,U)
+  AngleCore((@gyroAngle+U)*2,aim)
+  SteerControl.SetTarget(aim)
+EndFunction
+  
+
+Function Start()
+  isWhite = 1
+  isOrange = 0
+  MotorB.StartPower(50)
+  Time.Reset1()
+  While isWhite = 1 Or Time.Get1() < 1000
+    AngleCore(@gyroAngle, angle)
+    SteerControl.SetTarget(angle)
+    ColorCheck(isWhite, isOrange)
+  EndWhile 
+  @clockwise = isOrange 
+  Speaker.Tone(50, 3000, 100)
+  
+  Tool.select(@clockwise, @LDistance, @RDistance, Distance)
+  If Distance >= 50 Then
+    arriv = 500
+  Else
+    If Distance >= 39 Then
+      arriv = 250
+    Else
+      arriv = 90
+    EndIf
+  EndIf
+  MotorB.ResetCount()
+  While MotorB.GetTacho()<arriv
+    Center()
+  EndWhile
+  
+  Reset(@turnAngle)
+EndFunction
+
+Thread.Run = UArt
+Thread.Run = Steering
+Thread.Run = Display
+
+While UArtReady = 0 Or SteeringReady = 0 Or DisplayReady = 0
+  
+EndWhile
+
+Start()
+MotorB.StartPower(100)
+
+
+While turnCounter<12
+  isWhite = 1
+  isOrange = 0
+  While @clockWise<>isOrange Or isWhite=1 Or Time.Get1() < 2000 
+    Center()
+    ColorCheck(isWhite, isOrange)
+  EndWhile
+  MotorB.ResetCount()
+  While MotorB.GetTacho() < 1000 
+    Center()
+  EndWhile
+  Speaker.Tone(50, 3000, 100)
+  Reset(turnAngle)
+  Time.Reset1()
+EndWhile
+
+
+MotorB.ResetCount()
+'Reaching the finish point in the start area
+While MotorB.GetTacho()<4000
+  Center()
+EndWhile
+
+'Breaking motors and playing finish sound
+MotorB.OffAndBrake()
+Speaker.Tone(100, 3000, 300)
+Speaker.Wait()
+Speaker.Tone(100, 3000, 300)
+Speaker.Wait()
+Speaker.Tone(100, 3000, 300)
+Speaker.Wait()

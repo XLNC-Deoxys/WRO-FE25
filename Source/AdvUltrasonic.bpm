@@ -1,0 +1,20 @@
+'Name: EV3 AdvUltrasonic module
+'Version: 1.0
+'Author: Robotek Mukash Madi 2024/08/24
+'---------------------------------
+
+Function ReadPort1(out number distance)
+  distance = Sensor1.Raw1() / 10
+EndFunction
+
+Function ReadPort2(out number distance)
+  distance = Sensor2.Raw1() / 10
+EndFunction
+
+Function ReadPort3(out number distance)
+  distance = Sensor3.Raw1() / 10
+EndFunction
+
+Function ReadPort4(out number distance)
+  distance = Sensor4.Raw1() / 10
+EndFunction
