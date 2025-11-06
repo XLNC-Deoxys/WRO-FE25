@@ -62,7 +62,7 @@ A link to the rules can be found [here](https://wro-association.org/wp-content/u
 
 <div align=center>
 
- ![photo](./Images/Robot_photos/Components.png)
+ ![photo](./Images/Robot_photos/Components.jpg)
 </div>
 
 ## Platform selection
@@ -84,11 +84,11 @@ We shifted the center of gravity to the front axle by mounting the steering moto
 ## Chassis design
 
 <p align="center">
-  <img src="./Images/README_photos/Base.png" width="200"/>
+  <img src="./Images/README_photos/Base.jpg" width="200"/>
   &nbsp; ➡️ &nbsp;
-  <img src="./Images/README_photos/Drivetain.png" width="200"/>
+  <img src="./Images/README_photos/Drivetain.jpg" width="200"/>
   &nbsp; ➡️ &nbsp;
-  <img src="./Images/Robot_photos/Robot.png" width="200"/>
+  <img src="./Images/Robot_photos/Robot.jpg" width="200"/>
 </p>
 
 The main idea behind our design was simplicity.
