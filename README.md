@@ -23,11 +23,11 @@
     * [Schemes](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Scheme.pdf)
 * [Software](#software)
   * [Open challenge](#open-challenge)
-    * [Performance video]()
+    * [Performance video](https://youtu.be/S0fUP4UXTCI)
     * [Open program exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Open_Explanation.md)
     * [Open program pseudocode](#pseudocode)
   * [Obstacle challenge](#obstacle-challenge)
-    * [Performance video]()
+    * [Performance video](https://youtu.be/HjAzdkyZQP8)
     * [Ostacle program explanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Obstacle_Explanation.md)
     * [Obstacle program pseudocode](#pseudocode)
   * [Calibration program exlanation](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Calibration_Explanation.md)
@@ -50,19 +50,20 @@ We are the XLNC-Deoxys team from Kazakhstan, and we are competing in the 2025 WR
 The **[WRO 2024 Future Engineers - Self-Driving Cars](https://wro-association.org/)** challenges participants to design, build, and program an autonomous, self-driving car capable of stable navigation on a constantly changing game track. The challenge includes two tasks: driving around a circuit with changing interior walls and avoiding randomly placed obstacles based on their color, and performing a precise parallel parking maneuver at the end. Teams must utilize complex robotic systems, such as computer vision, sensor fusion, and kinematics, focusing on stability and innovation.
 
 This challenge addresses all aspects of the engineering process, including:
-**Mobility Management**: Designing efficient vehicle propulsion mechanisms.
-**Obstacle Avoidance**: Developing a strategy for detecting and navigating road signs (red and green markers) within specified rules.
-**Documentation**: Demonstrating engineering progress, design solutions, and open-source collaboration through a publicly accessible GitHub repository.
+
+* **Mobility Management**: Designing efficient vehicle propulsion mechanisms.
+
+* **Obstacle Avoidance**: Developing a strategy for detecting and navigating road signs (red and green markers) within specified rules.
+
+* **Documentation**: Demonstrating engineering progress, design solutions, and open-source collaboration through a publicly accessible GitHub repository.
 
 A link to the rules can be found [here](https://wro-association.org/wp-content/uploads/WRO-2024-Future-Engineers-Self-Driving-Cars-General-Rules.pdf).
 
 # Mobility management
 
-## Robot photos
-
 <div align=center>
 
- ![photo](./Images/Robot_photos/Components.jpg)
+ ![photo](./Images/Robot_photos/Components.png)
 </div>
 
 ## Platform selection
@@ -76,50 +77,27 @@ We used LEGO to build the robot because they allow for rapid design and testing 
 | EV3 Medium Motor | 250 | 8 | 12 | 75 | 2.5 |
 | EV3 Large Motor | 160 | 20 | 40 | 110 | 4.0 |
 
-We chose medium Lego motors for the drive and steering because they have an encoder and sufficient torque, and compared to large Lego motors, medium motors are lighter, more compact, and more accurate.
+We chose 45503 medium LEGO motor for the drive and steering because they have an encoder and sufficient torque, and compared to large Lego motors, medium motors are lighter, more compact, and more accurate.
 
 ## Weight distribution
-We shifted the center of gravity to the front axle by mounting the steering motor horizontally and placing the main weight of the robot—the programmable brick (311 g of 650 g)—directly above the front axle. This increased friction on the front wheels, and the turning radius was reduced by almost half compared to our first design. This robot has a high center of gravity, but this doesn't hinder it since it moves slowly. (дополнить цифрами)
+We shifted the center of gravity to the front axle by mounting the steering motor horizontally and placing the main weight of the robot—the programmable brick (311 g of 650 g)—directly above the front axle. This increased friction on the front wheels, and the turning radius was reduced by almost half compared to our first design. This robot has a high center of gravity, but this doesn't hinder it since it moves slowly.
+
+The weight distribution of our robot by axles is 45:55 - 45% on the front and 55% on the rear axle.
 
 ## Chassis design
-
-<p align="center" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-  <img src="./Images/README_photos/Base.jpg" height="250"/>
-  <span style="font-size: 500px;">➡️</span>
-  <img src="./Images/README_photos/Drivetrain.jpg" height="250"/>
-  <span style="font-size: 500px;">➡️</span>
-  <img src="./Images/Robot_photos/Robot.jpg" height="250"/>
+<p align="center">
+  <img src="./Images/README_photos/Base.jpg" height="200"/>
+  <img src="https://www.freeiconspng.com/uploads/red-arrow-png-22.png" width="100"/>
+  <img src="./Images/README_photos/Drivetrain.jpg" height="200"/>
+  <img src="https://www.freeiconspng.com/uploads/red-arrow-png-22.png" width="100"/>
+  <img src="./Images/Robot_photos/Robot.jpg" height="200"/>
 </p>
-
-<table align="center">
-  <tr>
-    <td align="center" valign="middle">
-      <img src="./Images/README_photos/Base.jpg" width="200"/>
-    </td>
-    <td align="center" valign="middle">
-      <span style="font-size: 80px;">➡️</span>
-    </td>
-    <td align="center" valign="middle">
-      <img src="./Images/README_photos/Drivetrain.jpg" width="200"/>
-    </td>
-    <td align="center" valign="middle">
-      <span style="font-size: 80px;">➡️</span>
-    </td>
-    <td align="center" valign="middle">
-      <img src="./Images/Robot_photos/Robot.jpg" width="200"/>
-    </td>
-  </tr>
-</table>
 
 The main idea behind our design was simplicity.
 
-<div align=center>
- 
- ![photo](./Images/README_photos/Pythagorean_camera_mount.jpg)
+<div align="center">
+  <img height="300" alt="image" src="https://github.com/user-attachments/assets/81c020da-5f72-4560-b681-a54ecef0206b"/>
 </div>
-
-<img height="512" alt="image" src="https://github.com/user-attachments/assets/81c020da-5f72-4560-b681-a54ecef0206b"/>
-
 
 We use a LEGO differential (a new reinforced one because it does not slip and can withstand any loads) to prevent wheel slippage when turning. The operating principle of the differential is shown in the photo above.
 
@@ -143,18 +121,16 @@ To compensate for the lack of an Ackermann system and enable a maximum turning a
 
 We moved the camera as far back as possible (by 17.6 cm from the center) and upward (by 27 cm from the ground) for a better view and to keep obstacles in sight for a long time. This also lengthens the robot and, consequently, the parking area.
 
-<div align=center>
- 
- ![photo](./Images/README_photos/Pythagorean_camera_mount.jpg)
+<div align="center">
+  <img src="./Images/README_photos/Pythagorean_camera_mount.png" width="500"/>
 </div>
 
 The camera mount is designed to be as light and sturdy as possible, as otherwise the camera will wobble and the robot will move crookedly. The lever created by the huge distance between the base and the camera will put pressure on the rear axle, impairing maneuverability. To achieve these goals, we used the Pythagorean theorem in beam connections (8, 15, 17). Our camera mount allows for quick adjustment of its angle.
 
 ## Old designs
 
-<div align=center>
- 
- ![photo](./Images/Robot_photos/National_stage_robot.jpg)
+<div align="center">
+  <img src="./Images/Robot_photos/Nationals_robot.jpg" width="300"/>
 </div>
 
 At the regional and national stages, we also used the EV3, but we tried to build the shortest and fastest robot possible for parking and rapid qualification. It was shorter by 12 cm but wider by 6 cm.
@@ -163,9 +139,8 @@ At the regional and national stages, we also used the EV3, but we tried to build
 | -- | -- | -- | -- |
 | Disadvantages | wider | less accurate odometry |  | 
 
-<div align=center>
- 
- ![photo](./Images/Robot_photos/Training_camp_robot.jpg)
+<div align="center">
+  <img src="./Images/Robot_photos/Training_camp_robot.jpg" width="300"/>
 </div>
 
 Then, during training camp, we switched to a new platform – the LEGO Spike Prime. It turned out to be the smallest we've ever built: approximately 10 x 10 cm. Our camera protruded 15 cm back, which made parking incredibly easy, but due to the ban on parking simplifications by driving over it, this compact design was pointless. For this design, we used the OpenMV H7 Plus camera, which, as it turned out, has a small field of view. Therefore, we had to use crutches and pinpoint the exact position of the obstacle using a SLAM unit.
@@ -194,7 +169,7 @@ We chose EV3 as a main microcontroller because:
 1) LEGO Mindstorms EV3 has official sensors whose quality and reliability we're confident in, as well as sensors and modules from third-party manufacturers (such as Pixie) that support LEGO Mindstorms EV3 without any additional workarounds.
 2) Unlike the 3D-printed parts found in robots using Arduino and Raspberry Pi, LEGO construction can be quickly and easily changed.
 
-| --- | ![photo](./Images/README_photos/Lego_EV3.jpg) | ![photo](./Images/README_photos/Lego_Spike_Prime.jpg) | ![photo](./Images/Robot_photos/Raspbery-Pi-5.jpg) | ![photo](./Images/README_photos/Arduino_UNO.jpg) | ![photo](./Images/README_photos/Nvidia_Jetson_Nano.jpg) |
+| | ![photo](https://ir.ozone.ru/s3/multimedia-4/c400/6121045792.jpg) | ![photo](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt319a240f7e71b963/5fb4f19cffb61e50a0fad8f2/45601_prod_01-2c6c9e81a6e5e5e17b3b3e3ff2c803ad.png?locale=en-us) | ![photo](https://www.sparkfun.com/media/catalog/product/cache/a793f13fd3d678cea13d28206895ba0c/D/E/DEV-26125-Raspberry-Pi-5-2G-Feature2.jpg) | ![photo](https://store.arduino.cc/cdn/shop/files/A000066_03.front_1200x600_crop_center.jpg?v=1727098250) | ![photo](https://developer.nvidia.com/blog/wp-content/uploads/2019/03/Jetson-Nano_3QTR-Front_Left-1920px.png) |
 | -- | -- | -- | -- | -- | -- |
 | Parameter | **LEGO EV3** | **LEGO SPIKE Prime** | **Raspberry Pi 5** | **Arduino Uno R3** | **NVIDIA Jetson Nano** |
 | **Processor / MCU** | ARM9 300 MHz | ARM Cortex-A7 528 MHz | Broadcom BCM2712 (4 × Cortex-A76 2.4 GHz) | ATmega328P (8-bit 16 MHz) | Quad-core ARM A57 1.43 GHz + GPU 128 CUDA |
@@ -214,11 +189,20 @@ We chose EV3 as a main microcontroller because:
 
 We use sensors for more stable driving. We use an EV3 color sensor to detect lines and determine their color, an EV3 gyroscope for precise 90-degree turns, and an EV3 ultrasonic sensor to maintain distance to the wall and detect parking. On Qualification, we have two sensors facing in different directions, and on the Obstacle Challenge, we use a single ultrasonic sensor due to a lack of ports.
 
-To determine the most accurate distance the robot can get from a boundary, we conducted a study, which you can read in the [Researches](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Ultrasonic_research) folder. The ultrasonic sensor provides inaccurate data if it's positioned at an angle. On April 8th, we plotted a graph showing the error as a function of angle. To more accurately determine the distance to the wall, we use the ultrasonic sensor's readings using the formula... (I can't remember whether it's cosine or sine). We tested a scanning ultrasonic sensor system, but found that it greatly complicates the code and makes the robot larger, but doesn't provide much benefit compared to a conventional distance sensor.
+To determine the most accurate distance the robot can get from a boundary, we conducted a study, which you can read in the [Researches](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Ultrasonic_research) folder. The ultrasonic sensor provides inaccurate data if it's positioned at an angle. On April 8th, we plotted a graph showing the error as a function of angle. To more accurately determine the distance to the wall, we use the ultrasonic sensor's readings using the formula. This is how the results of this study look in the program:
+
+https://github.com/XLNC-Deoxys/WRO-FE25/blob/b088995db966b68d1054305769dda0a999a03505/Source/Open.bp#L122
+
+We also tested a scanning ultrasonic sensor system, but found that it greatly complicates the code and makes the robot larger, but doesn't provide much benefit compared to a conventional distance sensor.
 
 For maximum stability, the EV3 gyroscope and EV3 ultrasonic sensor complement each other, preventing the car from crashing into a wall even if one of them begins to show errors.
 
-The motor encoders and gyroscope allow us to use odometry, which we enable during parking to prevent it from accumulating errors and since we don't need it for obstacle avoidance.
+The motor encoders and gyroscope allow us to use odometry, which we enable during parking to prevent it from accumulating errors and since we don't need it for obstacle avoidance. We made a special [module](https://github.com/XLNC-Deoxys/WRO-FE25/blob/b088995db966b68d1054305769dda0a999a03505/Source/Odometry.bpm) to calculate the robot's position using this formula:
+
+$x_{new}=x_{old}+\cos(\theta_{old})$
+
+$y_{new}=y_{old}+\sin(\theta_{old})$
+
 
 ### EV3 Gyro Sensor
 <table><tr>
@@ -320,10 +304,10 @@ We used the rechargeable lithium-ion battery included with the LEGO Mindstorms E
 
 ## Open challenge
 
-To help you better understand what I'm explaining, you can [click here](https://youtu.be/qQTfzTyW7DM) to view the video we created.
+To help you better understand what I'm explaining, you can [click here](https://youtu.be/S0fUP4UXTCI) to view the video we created.
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=qQTfzTyW7DM">
+  <a href="https://youtu.be/S0fUP4UXTCI">
     <img src="https://github.com/ThanyawutII/Test-2/blob/main/dgddv.png" width="600">
   </a>
 </div>
@@ -332,7 +316,7 @@ Our team has decided to employ a simple strategy for completing the "open" round
 
 ### Pseudocode
 
-
+https://github.com/XLNC-Deoxys/WRO-FE25/blob/bd55527a0a10d21631e3801bc8ee9256934dbde7/Source/Open_pseudocode.py#L1-L43
 
 ## Obstacle challenge
 
@@ -345,10 +329,10 @@ We use a Pixy2 camera to detect obstacles and determine their color. This camera
 
 ### Strategy
 
-To help you better understand what I'm explaining, you can [click here](https://youtu.be/qQTfzTyW7DM) to view the video we created.
+To help you better understand what I'm explaining, you can [click here](https://youtu.be/HjAzdkyZQP8) to view the video we created.
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=qQTfzTyW7DM">
+  <a href="https://youtu.be/HjAzdkyZQP8">
     <img src="https://github.com/ThanyawutII/Test-2/blob/main/dgddv.png" width="600">
   </a>
 </div>
@@ -368,7 +352,7 @@ https://github.com/XLNC-Deoxys/WRO-FE25/blob/882e710d82f4d48ad58d8104a71475b1f2c
 
 ***
 
-# To be improved
+# Future plans
 
 ## New microcontroller (Raspberry Pi)
 
