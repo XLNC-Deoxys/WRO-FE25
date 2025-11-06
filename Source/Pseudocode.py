@@ -1,52 +1,46 @@
-START PROGRAM
+INITIALIZE sensors (gyro, color, ultrasonic, pixycam)
+RESET gyro until stable
+LOAD color calibration from file
+CONFIGURE steering PID and encoder
+CALIBRATE steering motor
 
-Initialize sensors:
-  - Set Pixy2 (I2C), Ultrasonic, Gyro, Color Sensor modes
-  - Load RGB calibration values from file
-  - Configure PID for steering
+SET constants (Kp, Kd, turnAngle, etc.)
+START threads:
+  - UART: read gyro, color, distance
+  - I2C: read Pixy object data
+  - Steering: maintain PID steering
+  - Display: show distance on LCD
 
-Start Threads:
-  - Sensor Thread: constantly updates gyro angle, ultrasonic distance, RGB color
-  - Pixy2 Thread: tracks largest object, gets x/y and signature
-  - Steering Thread: PID adjusts steering motor based on target angle
-
-Wait until all threads are ready
+WAIT until all threads ready
+EXECUTE GetOutOfParking()
 
 FUNCTION Start():
-  Start moving forward
-  While surface is white:
-    - Use Autopilot mode 1 (just gyro-based correction)
-    - Check for orange turn marker
-  Determine turn direction (clockwise if orange detected)
-  Play tone and reset gyro heading for first turn
+  drive forward until orange marker detected
+  set turn direction (clockwise / counterclockwise)
+  play tone
+  call Reset(turnAngle)
 
-MAIN LOOP (repeat 12 turns):
-  While orange turn marker not detected OR wrong direction:
-    - Use Autopilot mode 0 (obstacle avoidance active)
-    - Check if orange is detected and direction matches
-  When turn point is valid:
-    - Play tone and reset gyro heading
-
-FUNCTION Autopilot(variant):
-  IF no object detected by Pixy2 OR ultrasonic distance out of range:
-    - IF variant = 0: use wall-centering logic (Center())
-    - ELSE: just use gyro-based correction
-  ELSE:
-    - Run DetourObstacle()
-
-FUNCTION DetourObstacle():
-  - IF signature = 2 (e.g., green block):
-      use mirrored parabola to calculate desired X
-  - ELSE (e.g., red block):
-      use standard parabola for trajectory
-  - Set target steering angle to follow curve (difference between desired X and Pixy2 X)
+MAIN LOOP (12 turns total):
+  while not at next orange marker:
+    if no obstacle or far distance → Center()
+    else → DetourObstacle()
+  play tone
+  call Reset(turnAngle)
 
 FUNCTION Center():
-  - Maintain 44 cm distance to wall using gyro and ultrasonic
-  - Adjust steering angle with PID based on difference
+  compute distance correction using gyro + ultrasonic
+  adjust steering to stay centered
 
-After 12 turns:
-  Drive forward until encoder reaches finish
-  Brake motors and play 3 final tones
+FUNCTION DetourObstacle():
+  use Pixy camera to detect obstacle position
+  compute steering correction around obstacle
 
-END PROGRAM
+FUNCTION Reset(turnAngle):
+  reset gyro reference based on turn direction
+  increment turn counter
+  reset timer
+
+AFTER 12 turns:
+  drive straight to finish zone
+  make final rotations (90°, 180°, etc.)
+  stop motors and play 3 finish tones
