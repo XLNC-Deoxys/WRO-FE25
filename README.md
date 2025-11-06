@@ -301,6 +301,22 @@ $y_{new}=y_{old}+\sin(\theta_{old})$
 ## Power management
 We used the rechargeable lithium-ion battery included with the LEGO Mindstorms EV3 as a power source. Although regular AA batteries hold a charge longer, they cannot be recharged, which is critical during competitions. Before each launch, we check that the battery is fully charged, and we have an extra full battery in reserve.
 
+### Robot power consumption
+
+| Component | Voltage | Current (typ) | Power |
+| -- | -- | -- | -- |
+| 2× EV3 Medium Motors | 7.4 V | ~0.50 A | ~3.7 W |
+| 2× Ultrasonic Sensors | 5 V | ~60 mA | ~0.3 W |
+| Gyro Sensor | 5 V | ~10 mA | ~0.05 W |
+| Color Sensor | 5 V | ~45 mA | ~0.23 W |
+| Pixy2.1 Camera | 5 V | ~140 mA | ~0.7 W |
+| EV3 Brick (CPU, LCD) | 7.4 V | ~0.10 A | ~0.74 W |
+
+**Total:** ≈ 5.7 W  
+**Total Current (from 7.4 V battery):** ≈ 0.8 A  
+**Expected runtime (2050 mAh Li-ion):** ~2.5 hours  
+
+
 ***
 
 # Software
