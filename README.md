@@ -83,13 +83,33 @@ We shifted the center of gravity to the front axle by mounting the steering moto
 
 ## Chassis design
 
-<p align="center">
-  <img src="./Images/README_photos/Base.jpg" width="200"/>
-  &nbsp; ➡️ &nbsp;
-  <img src="./Images/README_photos/Drivetain.jpg" width="200"/>
-  &nbsp; ➡️ &nbsp;
-  <img src="./Images/Robot_photos/Robot.jpg" width="200"/>
+<p align="center" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+  <img src="./Images/README_photos/Base.jpg" height="250"/>
+  <span style="font-size: 500px;">➡️</span>
+  <img src="./Images/README_photos/Drivetrain.jpg" height="250"/>
+  <span style="font-size: 500px;">➡️</span>
+  <img src="./Images/Robot_photos/Robot.jpg" height="250"/>
 </p>
+
+<table align="center">
+  <tr>
+    <td align="center" valign="middle">
+      <img src="./Images/README_photos/Base.jpg" width="200"/>
+    </td>
+    <td align="center" valign="middle">
+      <span style="font-size: 80px;">➡️</span>
+    </td>
+    <td align="center" valign="middle">
+      <img src="./Images/README_photos/Drivetrain.jpg" width="200"/>
+    </td>
+    <td align="center" valign="middle">
+      <span style="font-size: 80px;">➡️</span>
+    </td>
+    <td align="center" valign="middle">
+      <img src="./Images/Robot_photos/Robot.jpg" width="200"/>
+    </td>
+  </tr>
+</table>
 
 The main idea behind our design was simplicity.
 
@@ -111,7 +131,7 @@ We tried to make the base as short as possible to reduce the turning radius. How
 
 ## Ackerman steering geometry
 
-| ![photo](./Images/README_photos/Ackerman_steering.jpg) | ![photo](./Images/README_photos/Parallel_steering.jpg) |
+| ![photo](./Images/README_photos/Ackermann_steering.jpg) | ![photo](./Images/README_photos/Parallel_steering.jpg) |
 | :---: | :---: |
 | **Ackerman steering** | **Parallel steering** |
 
