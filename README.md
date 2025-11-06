@@ -40,7 +40,7 @@
 
 We are the XLNC-Deoxys team from Kazakhstan, and we are competing in the 2025 WRO Future Engineers category.
 
-| ![photo](./Images/Team_photos/Dastan.jpg) | ![photo](./Images/Team_photos/Zhanibek.jpg) |
+| <img src="./Images/Team_photos/Dastan.jpg" height="300"/> | <img src="./Images/Team_photos/Zhanibek.jpg" height="500"/> |
 | ---| -- |
 | **Dastan Musrepov** | **Zhanibek Danabek** |
 | Builder | Programmer |
@@ -87,9 +87,9 @@ The weight distribution of our robot by axles is 45:55 - 45% on the front and 55
 ## Chassis design
 <p align="center">
   <img src="./Images/README_photos/Base.jpg" height="200"/>
-  <img src="https://www.freeiconspng.com/uploads/red-arrow-png-22.png" width="100"/>
+  <img src="https://www.freeiconspng.com/uploads/red-arrow-png-22.png" width="50"/>
   <img src="./Images/README_photos/Drivetrain.jpg" height="200"/>
-  <img src="https://www.freeiconspng.com/uploads/red-arrow-png-22.png" width="100"/>
+  <img src="https://www.freeiconspng.com/uploads/red-arrow-png-22.png" width="50"/>
   <img src="./Images/Robot_photos/Robot.jpg" height="200"/>
 </p>
 
@@ -149,10 +149,12 @@ Then, during training camp, we switched to a new platform – the LEGO Spike Pri
 | -- | -- | -- | -- |
 | Disadvantages | doesn't comply with new regulations | camera field of view is too small | |
 
+<!--
 <div align=center>
  
  ![photo](./Images/README_photos/Size_comparison.jpg)
 </div>
+-->
 
 ## Components and building instructions
 
@@ -199,10 +201,11 @@ For maximum stability, the EV3 gyroscope and EV3 ultrasonic sensor complement ea
 
 The motor encoders and gyroscope allow us to use odometry, which we enable during parking to prevent it from accumulating errors and since we don't need it for obstacle avoidance. We made a special [module](https://github.com/XLNC-Deoxys/WRO-FE25/blob/b088995db966b68d1054305769dda0a999a03505/Source/Odometry.bpm) to calculate the robot's position using this formula:
 
+<div align="center">
 $x_{new}=x_{old}+\cos(\theta_{old})$
 
 $y_{new}=y_{old}+\sin(\theta_{old})$
-
+</div>
 
 ### EV3 Gyro Sensor
 <table><tr>
@@ -327,6 +330,12 @@ We use a Pixy2 camera to detect obstacles and determine their color. This camera
 2) Then we transfer these values ​​to Google Sheets and find the best fit line. Our sheet with the function calculation can be found [here](https://docs.google.com/spreadsheets/d/1uQ3p7Dw0eju2VstwOmTVAWoVSMLZkzuku79VgqmB5RI).
 3) Then we insert it into the code and write the logic so that the robot tries to drive so that the obstacle's coordinates from the camera match the graph.
 
+Our trajectory of the obstacle (Ignore the inaccuracy at the end, the camera was poorly adjusted)
+
+<div align="center">
+  <img height="300" alt="image" src="./Images/README_photos/Trajectory_of_the_obstacle.jpg"/>
+</div>
+
 ### Strategy
 
 To help you better understand what I'm explaining, you can [click here](https://youtu.be/HjAzdkyZQP8) to view the video we created.
@@ -357,10 +366,10 @@ https://github.com/XLNC-Deoxys/WRO-FE25/blob/882e710d82f4d48ad58d8104a71475b1f2c
 ## New microcontroller (Raspberry Pi)
 
 Despite its simplicity, using LEGO poses many limitations:
-1) Number of ports: The EV3 brick only has 4 sensor ports and 4 motor ports, so this year we only had to install one ultrasonic sensor for the obstakl.
-2) Size and weight: The LEGO Mindstorms EV3 brick is almost half the weight of our robot (311 of 670 g). All the sensors and motors for LEGO are very large.
-3) Сomputing power: The Raspberry Pi has a 5x higher frequency and 4 cores than the LEGO EV3. This allows for more iterations in odometry.
-4) Compatibility: Unfortunately, the sensors and cameras compatible with LEGO are far from the best. The Raspberry Pi is much more flexible in this regard, as you can connect anything to it. This allows us to use the most accurate and fastest sensors and cameras.
+1) **Number of ports:** The EV3 brick only has 4 sensor ports and 4 motor ports, so this year we only had to install one ultrasonic sensor for the obstakl.
+2) **Size and weight:** The LEGO Mindstorms EV3 brick is almost half the weight of our robot (311 of 670 g). All the sensors and motors for LEGO are very large.
+3) **Сomputing power:** The Raspberry Pi has a 5x higher frequency and 4 cores than the LEGO EV3. This allows for more iterations in odometry.
+4) **Compatibility:** Unfortunately, the sensors and cameras compatible with LEGO are far from the best. The Raspberry Pi is much more flexible in this regard, as you can connect anything to it. This allows us to use the most accurate and fastest sensors and cameras.
 
 ## 3D printed parts
 
