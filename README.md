@@ -203,7 +203,7 @@ The motor encoders and gyroscope allow us to use odometry, which we enable durin
 ### EV3 Gyro Sensor
 <table><tr>
 <td style="vertical-align:top; width:260px;">
-  <img src="https://www.lego.com/cdn/cs/set/assets/blt19b1d429a2b0b3de/45505.png" alt="EV3 Gyro Sensor" width="250">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShVLaq4yX3a_XZXLg6bj4JeahPYHT_Sgd4vg&s" alt="EV3 Gyro Sensor" width="250">
 </td>
 <td style="vertical-align:top;">
 
@@ -223,7 +223,7 @@ The motor encoders and gyroscope allow us to use odometry, which we enable durin
 ### EV3 Color Sensor
 <table><tr>
 <td style="vertical-align:top; width:260px;">
-  <img src="https://www.lego.com/cdn/cs/set/assets/blt3e6c62e3e3cb5b88/45506.png" alt="EV3 Color Sensor" width="250">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQNlzUqSe927BoohXxVIFc3oVo2a3wWcOZ4g&s" alt="EV3 Color Sensor" width="250">
 </td>
 <td style="vertical-align:top;">
 
@@ -241,7 +241,7 @@ The motor encoders and gyroscope allow us to use odometry, which we enable durin
 ### EV3 Ultrasonic Sensor
 <table><tr>
 <td style="vertical-align:top; width:260px;">
-  <img src="https://www.lego.com/cdn/cs/set/assets/bltba0b285c44d13e90/45504.png" alt="EV3 Ultrasonic Sensor" width="250">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrTvZApLOg5_8i8IpeFf9beWsCTZDxEnlK6g&s" alt="EV3 Ultrasonic Sensor" width="250">
 </td>
 <td style="vertical-align:top;">
 
@@ -259,7 +259,7 @@ The motor encoders and gyroscope allow us to use odometry, which we enable durin
 ### PixyCam 2.1 LEGO Edition
 <table><tr>
 <td style="vertical-align:top; width:260px;">
-  <img src="https://cdn-shop.adafruit.com/970x728/3680-01.jpg" alt="PixyCam 2.1 LEGO Edition" width="250">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfBt_ALMGtvRIdpUoeXaM-nic1FP6QZ9pm8g&s" alt="PixyCam 2.1 LEGO Edition" width="250">
 </td>
 <td style="vertical-align:top;">
 
@@ -312,9 +312,7 @@ Our team has decided to employ a simple strategy for completing the "open" round
 
 ### Pseudocode
 
-https://github.com/XLNC-Deoxys/WRO-FE25/blob/4a5e3cee411c91461a604e7479d26907a3826eb7/Source/Pseudocode.py#L1-L52
 
-### Flowchart
 
 ## Obstacle challenge
 
@@ -343,6 +341,10 @@ Using our "detour line" and the obstacle's XY position in the image frame, our r
 
 Once our robot has completed the required 3 laps, we integrate odometry into its movement system. After the last turn, we slow down movement and drive until the ultrasonic sensor detects the "left" wall of the parking zone. During this drive, the same principle as in the qualification rounds applies, the robot attempts to stay within a certain distance from the outer wall). As soon as the parking zone's wall is detected, the robot drives forward slightly before performing a predefined set of odometry maneuvers that land it safely inside the parking zone.
 As you may have deduced, the above explanation only applies to counter-clockwise movement, as our primary ultrasonic sensor is located to the right of the robot and without it the detection of the parking zone is impossible. The solution to this, however, is simple. When driving clockwise, after finishing the final lap, the robot drives forward and performs a U-Turn, resulting in its position and direction being similar to its position during the beginning of our counter-clockwise parking algorithm (with negligible deviation). Once the U-Turn is performed, the robot applies that same counter-clockwise parking algorithm.
+
+## Pseudocode
+
+https://github.com/XLNC-Deoxys/WRO-FE25/blob/882e710d82f4d48ad58d8104a71475b1f2c5b51d/Source/Obstacle_pseudocode.py#L1-L46
 
 ***
 
