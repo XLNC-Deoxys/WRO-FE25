@@ -395,7 +395,7 @@ Despite its simplicity, using LEGO poses many limitations:
 Our robot is made entirely of LEGO pieces, but the downside of moving parts made of Lego is that they weren't designed for precision mechanisms. The motor axles, gears, and differential are made of Lego and have some play. By eliminating this, we can greatly improve the precision of the steering mechanism and drive. Printed parts also make the structure more robust.
 
 ## Odometry
-Our team has also experimented thoroughly with odometry. One version of our program (the SPIKE version) used a full odometry system to complete both the obstacle and open runs. Initially, we explored it because it would make adapting to surprise rules easier, however, the error propagation caused instability in later laps, which is why we decided to abandon it. We are currently attempting to integrate odometry into our parking algorithm to enhance precision and prevent wall-bumps.
+Our team has also experimented thoroughly with odometry. One version of our program (the SPIKE version) used a full odometry system to complete both the obstacle and open runs. You can check its program [here](https://github.com/XLNC-Deoxys/WRO-FE25/tree/main/Source/Previous_robot). Initially, we explored it because it would make adapting to surprise rules easier, however, the error propagation caused instability in later laps, which is why we decided to abandon it. We are currently attempting to integrate odometry into our parking algorithm to enhance precision and prevent wall-bumps.
 
 ***
 
