@@ -191,6 +191,8 @@ We chose EV3 as a main microcontroller because:
 
 We use sensors for more stable driving. We use an EV3 color sensor to detect lines and determine their color, an EV3 gyroscope for precise 90-degree turns, and an EV3 ultrasonic sensor to maintain distance to the wall and detect parking. On Qualification, we have two sensors facing in different directions, and on the Obstacle Challenge, we use a single ultrasonic sensor due to a lack of ports.
 
+We use PID for steering, PD fo gyroscope and P regulator for the center function. It helps us to drive smoothly.
+
 To determine the most accurate distance the robot can get from a boundary, we conducted a study, which you can read in the [Researches](https://github.com/RobotekPRIME2024/WRO-FE24/tree/main/Ultrasonic_research) folder. The ultrasonic sensor provides inaccurate data if it's positioned at an angle. On April 8th, we plotted a graph showing the error as a function of angle. To more accurately determine the distance to the wall, we use the ultrasonic sensor's readings using the formula. This is how the results of this study look in the program:
 
 https://github.com/XLNC-Deoxys/WRO-FE25/blob/b088995db966b68d1054305769dda0a999a03505/Source/Open.bp#L122
