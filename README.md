@@ -202,6 +202,7 @@ For maximum stability, the EV3 gyroscope and EV3 ultrasonic sensor complement ea
 The motor encoders and gyroscope allow us to use odometry, which we enable during parking to prevent it from accumulating errors and since we don't need it for obstacle avoidance. We made a special [module](https://github.com/XLNC-Deoxys/WRO-FE25/blob/b088995db966b68d1054305769dda0a999a03505/Source/Odometry.bpm) to calculate the robot's position using this formula:
 
 <div align="center">
+ 
 $x_{new}=x_{old}+\cos(\theta_{old})$
 
 $y_{new}=y_{old}+\sin(\theta_{old})$
