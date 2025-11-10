@@ -385,7 +385,20 @@ You can find a full breakdown of our program [here](https://github.com/XLNC-Deox
 
 #### Parking
 
-Once our robot has completed the required 3 laps, we integrate odometry into its movement system. After the last turn, we slow down movement and drive until the ultrasonic sensor detects the "left" wall of the parking zone. During this drive, the same principle as in the qualification rounds applies, the robot attempts to stay within a certain distance from the outer wall). As soon as the parking zone's wall is detected, the robot drives forward slightly before performing a predefined set of odometry maneuvers that land it safely inside the parking zone.
+Once our robot has completed the required 3 laps, we start the parking algorithm. After the last turn, we slow down movement and drive until the ultrasonic sensor detects the "left" wall of the parking zone. During this drive, the same principle as in the qualification rounds applies, the robot attempts to stay within a certain distance from the outer wall).
+
+<div align=center>
+
+ ![photo](./Images/README_photos/Search_for_parking.png)
+</div>
+
+As soon as the parking zone's wall is detected, the robot drives forward slightly before performing a predefined set of odometry maneuvers that land it safely inside the parking zone.
+
+<div align=center>
+
+ ![photo](./Images/README_photos/Parking_trajectory.png)
+</div>
+
 As you may have deduced, the above explanation only applies to counter-clockwise movement, as our primary ultrasonic sensor is located to the right of the robot and without it the detection of the parking zone is impossible. The solution to this, however, is simple. When driving clockwise, after finishing the final lap, the robot drives forward and performs a U-Turn, resulting in its position and direction being similar to its position during the beginning of our counter-clockwise parking algorithm (with negligible deviation). Once the U-Turn is performed, the robot applies that same counter-clockwise parking algorithm.
 
 ## Pseudocode
