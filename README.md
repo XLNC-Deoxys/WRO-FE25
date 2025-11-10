@@ -189,6 +189,11 @@ We chose EV3 as a main microcontroller because:
 
 ## Sensor management
 
+<div align=center>
+
+ ![photo](./Schemes/Wiring_diagram.jpg)
+</div>
+
 We use sensors for more stable driving. We use an EV3 color sensor to detect lines and determine their color, an EV3 gyroscope for precise 90-degree turns, and an EV3 ultrasonic sensor to maintain distance to the wall and detect parking. On Qualification, we have two sensors facing in different directions, and on the Obstacle Challenge, we use a single ultrasonic sensor due to a lack of ports.
 
 We use PID for steering, PD fo gyroscope and P regulator for the center function. It helps us to drive smoothly.
