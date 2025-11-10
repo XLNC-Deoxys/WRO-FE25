@@ -355,7 +355,7 @@ Our trajectory of the obstacle (Ignore the inaccuracy at the end, the camera was
 
 <div align="center">
  
-| <img src="./Images/README_photos/Trajectory_of_the_red_obstacle.jpg" height="500"/> | <img src="./Images/README_photos/Trajectory_of_the_green_obstacle.jpg" height="500"/> |
+| <img src="./Images/README_photos/Red_obstacle_trajectory.jpg" height="500"/> | <img src="./Images/README_photos/Green_obstacle_trajectory.jpg" height="500"/> |
 | ---| -- |
 | **Trajectory of the red obstacle** | **Trajectory of the green obstacle (just reversed red trajectory)** |
 </div>
