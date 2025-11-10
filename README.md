@@ -308,6 +308,24 @@ However, we abandoned it this time because it's rather inaccurate, complicates t
 
 </td></tr></table>
 
+## Schemes
+
+Power Schemes for every electronic part of the vehicle can be found here:
+
+[EV3 P-Brick](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Schemes/LEGO%2095646c01%20Programmable%20brick.pdf)
+
+[EV3 Medium motor](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Schemes/LEGO%2099455%20Medium%20motor.pdf)
+
+[Battery](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Schemes/LEGO%2095656%20Rechargeable%20battery.pdf)
+
+[Color Sensor](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Schemes/LEGO%2095650%20Color%20sensor.pdf)
+
+[Gyro sensor](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Schemes/LEGO%2099380%20Gyro%20sensor.pdf)
+
+[Ultrasonic sensor](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Schemes/LEGO%2095652%20Ultrasonic%20sensor.pdf)
+
+[Pixy2](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Schemes/Pixy2.pdf)
+
 ## Power management
 We used the rechargeable lithium-ion battery included with the LEGO Mindstorms EV3 as a power source. Although regular AA batteries hold a charge longer, they cannot be recharged, which is critical during competitions. Before each launch, we check that the battery is fully charged, and we have an extra full battery in reserve.
 
