@@ -331,6 +331,10 @@ We used the rechargeable lithium-ion battery included with the LEGO Mindstorms E
 
 # Software
 
+## Calibration
+
+We frequently ran into the issue of lightning during our tests and previous competitions. External factors like difference in lightning or even the material that the playing field is made of can affect the accuracy of the EV3 color sensor. Though we try to compensate by increasing the range at which it detects blue and orange, there is still a negative effect. To solve this, our team has a short program we launch before every run. The program simply drives forward and detects spikes in color signatures. We place the robot in a way so that it passes over both lines. It then selects the average value for both blue and orange and saves it into its storage. This value is the color value we use when detecting the line in both Open Challenge and Obstacle Challenge. In short, this calibration program allows us to mitigate external factors and improve color sensor accuracy.
+
 ## Open challenge
 
 To help you better understand what I'm explaining, you can [click here](https://youtu.be/S0fUP4UXTCI) to view the video we created.
@@ -342,6 +346,11 @@ To help you better understand what I'm explaining, you can [click here](https://
 </div>
 
 Our team has decided to employ a simple strategy for completing the "open" round. The driving system itself uses a combination of the onboard gyroscope and ultrasonic sensor. The ultrasonic sensor measures the distance to the outer/inner wall and the robot attempts to maintain a certain distance (stored in a variable) from that wall. The gyroscope allows it to maintain a straight trajectory forward with minimum deviation. During the very first turn of the round, our robot scans the first line it passes over using a colour sensor and stores its value in a variable. This one-time operation tells our program if the robot is going clockwise or counter-clockwise (orange for clockwise and blue for counter-clockwise). This information then affects all the turns going forward, deciding whether the robot turns left or right by changing the desired turn angle to negative or vice-versa. Those turns are executed by changing the desired angle to 90 or -90 in our gyroscope function. The robot also uses a variable as a counter to check how many lines it has passed. Once that variable is equal to 12 (which means that all 3 laps are finished) the robot drives forward for a set period of time to land in its starting area and stops.
+
+<div align=center>
+
+ ![photo](./Images/README_photos/Detour_obstacle.png)
+</div>
 
 You can find a full breakdown of our program [here](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Open.bp).
 
