@@ -376,6 +376,13 @@ You can find a full breakdown of our program [here](https://github.com/XLNC-Deox
 
 https://github.com/XLNC-Deoxys/WRO-FE25/blob/bd55527a0a10d21631e3801bc8ee9256934dbde7/Source/Open_pseudocode.py#L1-L43
 
+### Flowchart
+
+<div align=center>
+
+ ![photo](./Source/Open_flowchart.jpg)
+</div>
+
 ## Obstacle challenge
 
 ### Pixy2
