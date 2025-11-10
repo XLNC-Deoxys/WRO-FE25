@@ -336,6 +336,8 @@ To help you better understand what I'm explaining, you can [click here](https://
 
 Our team has decided to employ a simple strategy for completing the "open" round. The driving system itself uses a combination of the onboard gyroscope and ultrasonic sensor. The ultrasonic sensor measures the distance to the outer/inner wall and the robot attempts to maintain a certain distance (stored in a variable) from that wall. The gyroscope allows it to maintain a straight trajectory forward with minimum deviation. During the very first turn of the round, our robot scans the first line it passes over using a colour sensor and stores its value in a variable. This one-time operation tells our program if the robot is going clockwise or counter-clockwise (orange for clockwise and blue for counter-clockwise). This information then affects all the turns going forward, deciding whether the robot turns left or right by changing the desired turn angle to negative or vice-versa. Those turns are executed by changing the desired angle to 90 or -90 in our gyroscope function. The robot also uses a variable as a counter to check how many lines it has passed. Once that variable is equal to 12 (which means that all 3 laps are finished) the robot drives forward for a set period of time to land in its starting area and stops.
 
+You can find a full breakdown of our program [here](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Open.bp).
+
 ### Pseudocode
 
 https://github.com/XLNC-Deoxys/WRO-FE25/blob/bd55527a0a10d21631e3801bc8ee9256934dbde7/Source/Open_pseudocode.py#L1-L43
@@ -352,7 +354,10 @@ We use a Pixy2 camera to detect obstacles and determine their color. This camera
 Our trajectory of the obstacle (Ignore the inaccuracy at the end, the camera was poorly adjusted)
 
 <div align="center">
-  <img height="300" alt="image" src="./Images/README_photos/Trajectory_of_the_obstacle.jpg"/>
+ 
+| <img src="./Images/README_photos/Trajectory_of_the_red_obstacle.jpg" height="500"/> | <img src="./Images/README_photos/Trajectory_of_the_green_obstacle.jpg" height="500"/> |
+| ---| -- |
+| **Trajectory of the red obstacle** | **Trajectory of the green obstacle (just reversed red trajectory)** |
 </div>
 
 ### Strategy
@@ -368,6 +373,8 @@ To help you better understand what I'm explaining, you can [click here](https://
 While there is no obstacle in the camera's field of view, our robot behaves similarly to the qualification run: maintaining a constant distance from the wall using an ultrasonic sensor and staying on track as well as making turns using a gyroscope.
 As soon as an obstacle enters the camera's field of view, the robot switches to detour mode. For detouring, we have created a predefined function in the form of kx+b with carefully calibrated coefficients. This line acts as the ideal path that the center of the detected obstacle needs to follow in the image frame. In short, we define where the obstacle should "appear" on the camera as the robot moves in a ideal situation.
 Using our "detour line" and the obstacle's XY position in the image frame, our robot can calculate the deviation of the obstacle from the ideal path and adjust its steering accordingly. This method provides our robot with consistency and ease of modification, due to the fact that every detour is mathematically identical and the coefficients of our ideal path can be changed with little effort to adapt to various situations.
+
+You can find a full breakdown of our program [here](https://github.com/XLNC-Deoxys/WRO-FE25/blob/main/Source/Obstacle.bp).
 
 #### Parking
 
