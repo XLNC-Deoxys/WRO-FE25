@@ -66,6 +66,8 @@ A link to the rules can be found [here](https://wro-association.org/wp-content/u
  ![photo](./Images/Robot_photos/Components.png)
 </div>
 
+You can find short video explanation of our robot [here](https://youtu.be/aQLRwr4lCrU).
+
 ## Platform selection
 
 We used LEGO to build the robot because it allows rapid design and testing of mechanical and electronic solutions, ensuring stable motors, sensors, and compatibility with official controllers. This reduces assembly time and allows us to focus on autonomous driving algorithms rather than complex mechanics.
