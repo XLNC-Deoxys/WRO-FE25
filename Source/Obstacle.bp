@@ -130,10 +130,10 @@ EndFunction
 
 Function DetourObstacle()
   If @signature = 2 Then
-    desiredX = -0.0025 * @pixyY * @pixyY + 0.8 * @pixyY + 35
+    desiredX = 0.0266 * @pixyY * @pixyY + 0.586 * @pixyY - 21
     EV3.SetLEDColor("GREEN", "NORMAL")
   Else
-    desiredX = 0.0025 * @pixyY * @pixyY - 0.8 * @pixyY - 35
+    desiredX = 0.0266 * @pixyY * @pixyY - 0.586 * @pixyY - 21
     EV3.SetLEDColor("RED", "NORMAL")
   EndIf
   SteerControl.SetTarget((desiredX - @pixyX) * 1)
@@ -295,4 +295,5 @@ Speaker.Wait()
 Speaker.Tone(100, 3000, 300)
 Speaker.Wait()
 Speaker.Tone(100, 3000, 300)
+
 Speaker.Wait()
