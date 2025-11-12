@@ -47,12 +47,12 @@ We are the XLNC-Deoxys team from Kazakhstan, and we are competing in the 2025 WR
 
 <div align=center>
 
- ![photo](./Images/Team_photos/Official.jpg)
+ ![photo](./Images/Team_photos/Official.JPG)
 </div>
 
 <div align=center>
 
- ![photo](./Images/Team_photos/Funny.jpg)
+ ![photo](./Images/Team_photos/Funny.JPG)
 </div>
 
 # The challenge
