@@ -45,6 +45,16 @@ We are the XLNC-Deoxys team from Kazakhstan, and we are competing in the 2025 WR
 | **Dastan Musrepov** | **Zhanibek Danabek** |
 | Builder | Programmer |
 
+<div align=center>
+
+ ![photo](./Images/Team_photos/Official.jpg)
+</div>
+
+<div align=center>
+
+ ![photo](./Images/Team_photos/Funny.jpg)
+</div>
+
 # The challenge
 
 The **[WRO 2024 Future Engineers - Self-Driving Cars](https://wro-association.org/)** challenges participants to design, build, and program an autonomous, self-driving car capable of stable navigation on a constantly changing game track. The challenge includes two tasks: driving around a circuit with changing interior walls and avoiding randomly placed obstacles based on their color, and performing a precise parallel parking maneuver at the end. Teams must utilize complex robotic systems, such as computer vision, sensor fusion, and kinematics, focusing on stability and innovation.
